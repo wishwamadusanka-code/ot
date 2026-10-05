@@ -81,12 +81,13 @@ export const CuratedToursSection: React.FC<CuratedToursSectionProps> = ({
           <div className="grid grid-cols-1 lg:grid-cols-12">
             
             {/* Tour Image Column */}
-            <div className="lg:col-span-5 relative min-h-[300px] lg:min-h-full">
+            <div className="lg:col-span-5 relative w-full h-64 sm:h-80 lg:h-auto min-h-[260px] overflow-hidden bg-slate-900">
               <img
                 src={activeTour.image}
                 alt={activeTour.title}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover min-h-[260px]"
                 referrerPolicy="no-referrer"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#081827] via-[#081827]/40 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-[#081827]" />
               <div className="absolute top-4 left-4">

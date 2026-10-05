@@ -110,12 +110,13 @@ export const CuratedToursModal: React.FC<CuratedToursModalProps> = ({
         <div className="overflow-y-auto p-6 sm:p-8 space-y-8 flex-grow">
           
           {/* Active Tour Hero Bar */}
-          <div className="relative rounded-xl overflow-hidden aspect-[16/7] sm:aspect-[21/9] w-full border border-slate-800">
+          <div className="relative rounded-xl overflow-hidden w-full h-52 sm:h-72 md:aspect-[21/9] min-h-[200px] border border-slate-800 bg-slate-900">
             <img
               src={activeTour.image}
               alt={activeTour.title}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover min-h-[200px]"
               referrerPolicy="no-referrer"
+              decoding="async"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#081827] via-[#081827]/50 to-transparent" />
             <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6">

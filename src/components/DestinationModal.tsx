@@ -31,12 +31,13 @@ export const DestinationModal: React.FC<DestinationModalProps> = ({
         </button>
 
         {/* Hero Image */}
-        <div className="relative h-64 sm:h-80 w-full overflow-hidden">
+        <div className="relative h-64 sm:h-80 w-full min-h-[220px] overflow-hidden bg-slate-900">
           <img
             src={destination.image}
             alt={destination.name}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover min-h-[220px]"
             referrerPolicy="no-referrer"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#091A2A] via-[#091A2A]/40 to-transparent" />
           

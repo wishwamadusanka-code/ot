@@ -34,13 +34,13 @@ export const DestinationsSection: React.FC<DestinationsSectionProps> = ({
               className="group bg-[#0A1A2A] hover:bg-[#0D2237] border border-slate-800/80 hover:border-[#E5A83B]/40 rounded-xl overflow-hidden flex flex-col justify-between transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-1 cursor-pointer"
             >
               {/* Image Container with Fallback */}
-              <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-900">
+              <div className="relative aspect-[4/3] w-full min-h-[190px] overflow-hidden bg-slate-900">
                 <img
                   src={dest.image}
                   alt={dest.name}
                   className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   referrerPolicy="no-referrer"
-                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0A1A2A] via-transparent to-transparent opacity-60" />
               </div>

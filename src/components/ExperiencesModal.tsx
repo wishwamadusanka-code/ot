@@ -53,12 +53,13 @@ export const ExperiencesModal: React.FC<ExperiencesModalProps> = ({
                 className="bg-[#0A1A2A] border border-slate-800/90 rounded-xl overflow-hidden flex flex-col justify-between group hover:border-[#E5A83B]/40 transition-all duration-300"
               >
                 {/* Image */}
-                <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-900">
+                <div className="relative aspect-[16/9] w-full min-h-[190px] overflow-hidden bg-slate-900">
                   <img
                     src={exp.image}
                     alt={exp.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     referrerPolicy="no-referrer"
+                    decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0A1A2A] via-transparent to-transparent" />
                   <span className="absolute top-3 left-3 bg-[#07131F]/90 border border-slate-700 text-[10px] font-medium tracking-wider uppercase text-[#E5A83B] px-2.5 py-1 rounded-full">
