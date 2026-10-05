@@ -1,0 +1,7 @@
+{
+  "name": "Ocean Pearl Luxury Travel & Tours",
+  "description": "Bespoke luxury expeditions and tailor-made journeys across Sri Lanka, crafted by local connoisseurs.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
