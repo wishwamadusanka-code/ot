@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Compass, Menu, X, ArrowRight, Phone } from 'lucide-react';
+import { Compass, Menu, X, ArrowRight } from 'lucide-react';
 import { oceanPearlEmblem } from '../data/travelData';
 
 interface NavbarProps {
@@ -17,7 +17,8 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenConcierge,
   onSelectNav,
   onOpenCuratedTours,
-  onOpenHeritage
+  onOpenHeritage,
+  onOpenStories
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -27,7 +28,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-[#07131F]/95 backdrop-blur-md border-b border-slate-800/80 transition-all shadow-lg">
+    <header className="sticky top-0 z-40 w-full bg-[#FAF7F2]/95 backdrop-blur-md border-b border-[#EAE3D2] transition-all shadow-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 sm:h-22 flex items-center justify-between">
         
         {/* Brand Lockup */}
@@ -38,39 +39,39 @@ export const Navbar: React.FC<NavbarProps> = ({
           className="flex items-center gap-3.5 group text-left focus:outline-none"
         >
           {/* Logo with beaded pearl ring */}
-          <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-full overflow-hidden p-0.5 shadow-md flex items-center justify-center ring-2 ring-[#E5A83B]/50 group-hover:scale-105 transition-transform duration-200 bg-[#091D2F]">
+          <div className="relative w-12 h-12 rounded-full overflow-hidden p-0.5 shadow-md flex items-center justify-center ring-2 ring-[#C08A3E]/40 group-hover:scale-105 transition-transform duration-200 bg-[#0C2340]">
             <img
               src={oceanPearlEmblem}
-              alt="Ocean Pearl Travel Official Emblem"
+              alt="Ocean Pearl Travel Emblem"
               className="w-full h-full object-cover rounded-full"
               referrerPolicy="no-referrer"
             />
           </div>
 
           <div className="flex flex-col">
-            <span className="font-serif-luxury text-xl sm:text-2xl tracking-[0.08em] font-semibold text-white group-hover:text-slate-200 transition-colors leading-none uppercase">
+            <span className="font-serif-luxury text-xl sm:text-2xl tracking-[0.06em] font-semibold text-[#0C2340] leading-none">
               OCEAN PEARL TRAVEL
             </span>
             <div className="flex items-center gap-1.5 mt-1">
-              <span className="h-[1px] w-3.5 bg-[#E5A83B]/70" />
-              <span className="text-[10px] sm:text-[11px] tracking-[0.16em] text-[#E5A83B] font-medium font-serif-luxury italic">
+              <span className="h-[1px] w-4 bg-[#C08A3E]/60" />
+              <span className="text-[10px] sm:text-[11px] tracking-[0.14em] text-[#B8863D] font-medium font-serif-luxury italic">
                 Discover Sri Lanka's Hidden Treasures
               </span>
-              <span className="h-[1px] w-3.5 bg-[#E5A83B]/70" />
+              <span className="h-[1px] w-4 bg-[#C08A3E]/60" />
             </div>
           </div>
         </button>
 
         {/* Desktop Nav Links */}
-        <nav className="hidden lg:flex items-center gap-8 text-xs font-medium tracking-[0.14em] uppercase text-slate-300">
+        <nav className="hidden lg:flex items-center gap-8 text-xs font-medium tracking-[0.1em] text-[#0C2340]">
           <button
             onClick={() => {
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="text-white font-semibold py-1 cursor-pointer transition-colors relative"
+            className="text-[#0C2340] font-semibold py-1 cursor-pointer transition-colors relative"
           >
             Home
-            <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-4 h-[2px] bg-[#E5A83B] rounded-full" />
+            <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-4 h-[2px] bg-[#C08A3E] rounded-full" />
           </button>
           <button
             onClick={() => {
@@ -81,44 +82,51 @@ export const Navbar: React.FC<NavbarProps> = ({
                 onOpenCuratedTours();
               }
             }}
-            className="hover:text-[#E5A83B] transition-colors py-1 cursor-pointer"
+            className="hover:text-[#B8863D] text-[#2C4058] transition-colors py-1 cursor-pointer"
           >
             Tours
           </button>
           <button
             onClick={() => onSelectNav('destinations')}
-            className="hover:text-[#E5A83B] transition-colors py-1 cursor-pointer"
+            className="hover:text-[#B8863D] text-[#2C4058] transition-colors py-1 cursor-pointer"
           >
             Destinations
           </button>
           <button
+            onClick={() => {
+              const el = document.getElementById('album');
+              if (el) {
+                el.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+            className="hover:text-[#B8863D] text-[#2C4058] transition-colors py-1 cursor-pointer flex items-center gap-1.5"
+          >
+            <span>Photo Album</span>
+            <span className="bg-[#E5A83B]/20 text-[#B8863D] text-[9px] px-1.5 py-0.2 rounded-full font-semibold">
+              11
+            </span>
+          </button>
+          <button
             onClick={onOpenHeritage}
-            className="hover:text-[#E5A83B] transition-colors py-1 cursor-pointer"
+            className="hover:text-[#B8863D] text-[#2C4058] transition-colors py-1 cursor-pointer"
           >
             About Us
           </button>
           <button
             onClick={onOpenConcierge}
-            className="hover:text-[#E5A83B] transition-colors py-1 cursor-pointer"
+            className="hover:text-[#B8863D] text-[#2C4058] transition-colors py-1 cursor-pointer"
           >
             Contact
           </button>
         </nav>
 
-        {/* Right CTA Button & Quick Concierge */}
-        <div className="hidden sm:flex items-center gap-3">
-          <button
-            onClick={onOpenConcierge}
-            className="w-9 h-9 rounded-full bg-slate-800/80 hover:bg-slate-700 text-[#E5A83B] flex items-center justify-center border border-slate-700 transition-colors"
-            title="Speak with Local Concierge"
-          >
-            <Phone className="w-4 h-4" />
-          </button>
+        {/* Right CTA Button */}
+        <div className="hidden sm:flex items-center gap-4">
           <button
             onClick={onOpenTripPlanner}
-            className="bg-[#E5A83B] hover:bg-[#d5982b] text-slate-950 font-semibold text-xs tracking-wider uppercase px-6 py-2.5 rounded-full transition-all duration-200 shadow-md flex items-center gap-2 cursor-pointer active:scale-95"
+            className="bg-[#C08A3E] hover:bg-[#A8742A] text-white font-medium text-xs tracking-wider px-6 py-2.5 rounded-full transition-all duration-200 shadow-md flex items-center gap-2 cursor-pointer active:scale-95"
           >
-            <Compass className="w-3.5 h-3.5 text-slate-950" />
+            <Compass className="w-3.5 h-3.5 text-white/90" />
             <span>Plan Your Trip</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </button>
@@ -127,7 +135,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         {/* Mobile Menu Toggle */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="lg:hidden p-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition-colors focus:outline-none"
+          className="lg:hidden p-2 rounded-lg text-[#0C2340] hover:bg-[#EFE9DD] transition-colors focus:outline-none"
           aria-label="Toggle navigation menu"
         >
           {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -137,11 +145,11 @@ export const Navbar: React.FC<NavbarProps> = ({
 
       {/* Mobile Nav Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#07131F] border-b border-slate-800 px-6 py-6 space-y-4 animate-in slide-in-from-top-2 duration-200">
-          <div className="flex flex-col gap-3 text-xs uppercase tracking-widest text-slate-200 font-medium">
+        <div className="lg:hidden bg-[#FAF7F2] border-b border-[#EAE3D2] px-6 py-6 space-y-4 animate-in slide-in-from-top-2 duration-200">
+          <div className="flex flex-col gap-3 text-sm font-medium text-[#0C2340]">
             <button
               onClick={() => handleNavClick(() => window.scrollTo({ top: 0, behavior: 'smooth' }))}
-              className="text-left py-2 text-[#E5A83B] font-semibold"
+              className="text-left py-2 font-semibold text-[#B8863D]"
             >
               Home
             </button>
@@ -154,34 +162,48 @@ export const Navbar: React.FC<NavbarProps> = ({
                   onOpenCuratedTours();
                 }
               })}
-              className="text-left py-2 hover:text-[#E5A83B]"
+              className="text-left py-2 hover:text-[#B8863D]"
             >
               Tours
             </button>
             <button
               onClick={() => handleNavClick(() => onSelectNav('destinations'))}
-              className="text-left py-2 hover:text-[#E5A83B]"
+              className="text-left py-2 hover:text-[#B8863D]"
             >
               Destinations
             </button>
             <button
+              onClick={() => handleNavClick(() => {
+                const el = document.getElementById('album');
+                if (el) {
+                  el.scrollIntoView({ behavior: 'smooth' });
+                }
+              })}
+              className="text-left py-2 hover:text-[#B8863D] flex items-center justify-between"
+            >
+              <span>Photo Album</span>
+              <span className="bg-[#E5A83B]/20 text-[#B8863D] text-[10px] px-2 py-0.5 rounded-full font-semibold">
+                11 Moments
+              </span>
+            </button>
+            <button
               onClick={() => handleNavClick(onOpenHeritage)}
-              className="text-left py-2 hover:text-[#E5A83B]"
+              className="text-left py-2 hover:text-[#B8863D]"
             >
               About Us
             </button>
             <button
               onClick={() => handleNavClick(onOpenConcierge)}
-              className="text-left py-2 hover:text-[#E5A83B]"
+              className="text-left py-2 hover:text-[#B8863D]"
             >
               Contact
             </button>
           </div>
 
-          <div className="pt-3 border-t border-slate-800 flex flex-col gap-2">
+          <div className="pt-3 border-t border-[#EAE3D2]">
             <button
               onClick={() => handleNavClick(onOpenTripPlanner)}
-              className="w-full bg-[#E5A83B] hover:bg-[#d5982b] text-slate-950 font-semibold text-xs tracking-wider uppercase py-3 rounded-full flex items-center justify-center gap-2 cursor-pointer shadow-md"
+              className="w-full bg-[#C08A3E] hover:bg-[#A8742A] text-white font-medium text-xs tracking-wider uppercase py-3 rounded-full flex items-center justify-center gap-2 cursor-pointer shadow-md"
             >
               <Compass className="w-4 h-4" />
               Plan Your Trip →

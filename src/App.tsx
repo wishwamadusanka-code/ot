@@ -3,11 +3,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { DestinationsSection } from './components/DestinationsSection';
 import { CuratedToursSection } from './components/CuratedToursSection';
+import { TourAlbumSection } from './components/TourAlbumSection';
 import { WhyTravelSection } from './components/WhyTravelSection';
 import { TestimonialsSection } from './components/TestimonialsSection';
 import { CtaBanner } from './components/CtaBanner';
@@ -15,6 +16,7 @@ import { Footer } from './components/Footer';
 
 import { DestinationModal } from './components/DestinationModal';
 import { CuratedToursModal } from './components/CuratedToursModal';
+import { TourAlbumModal } from './components/TourAlbumModal';
 import { ExperiencesModal } from './components/ExperiencesModal';
 import { HeritageModal } from './components/HeritageModal';
 import { GuestStoriesModal } from './components/GuestStoriesModal';
@@ -24,6 +26,8 @@ import { LegalModal } from './components/LegalModal';
 
 import { Destination } from './types';
 import { DESTINATIONS } from './data/travelData';
+import { ORIGINAL_TOUR_PHOTOS } from './data/tourPhotosData';
+import { getStoredPhotos, savePhoto, saveMultiplePhotos } from './utils/photoStorage';
 
 export default function App() {
   // Modal states
@@ -37,9 +41,23 @@ export default function App() {
   const [isTripPlannerOpen, setIsTripPlannerOpen] = useState(false);
   const [legalModalType, setLegalModalType] = useState<'privacy' | 'terms' | 'pledge' | null>(null);
 
+  // Original Tour Photos Album states
+  const [photoImages, setPhotoImages] = useState<Record<string, string>>({});
+  const [isPhotoModalOpen, setIsPhotoModalOpen] = useState(false);
+  const [selectedPhotoIndex, setSelectedPhotoIndex] = useState(0);
+
   // Pre-fill parameters for trip planner
   const [plannerDestination, setPlannerDestination] = useState<string | undefined>(undefined);
   const [plannerTour, setPlannerTour] = useState<string | undefined>(undefined);
+
+  // Load persistently stored tour photos on initial mount
+  useEffect(() => {
+    getStoredPhotos().then((stored) => {
+      if (stored && Object.keys(stored).length > 0) {
+        setPhotoImages(stored);
+      }
+    });
+  }, []);
 
   const handleOpenTripPlanner = (dest?: string, tour?: string) => {
     setPlannerDestination(dest);
@@ -59,10 +77,24 @@ export default function App() {
     }
   };
 
+  const handleUploadMultiple = async (files: FileList) => {
+    const { matchedPhotos } = await saveMultiplePhotos(files);
+    setPhotoImages((prev) => ({ ...prev, ...matchedPhotos }));
+  };
+
+  const handleUploadSingle = async (photoId: string, file: File) => {
+    const reader = new FileReader();
+    reader.onload = async () => {
+      const dataUrl = reader.result as string;
+      await savePhoto(photoId, dataUrl);
+      setPhotoImages((prev) => ({ ...prev, [photoId]: dataUrl }));
+    };
+    reader.readAsDataURL(file);
+  };
+
   return (
-    <div className="min-h-screen bg-[#07131F] text-slate-100 flex flex-col font-sans-luxury selection:bg-[#E5A83B] selection:text-slate-950">
-      
-      {/* Top Bar Navigation */}
+    <div className="min-h-screen flex flex-col bg-[#07131F] text-slate-100 font-sans selection:bg-[#E5A83B] selection:text-[#07131F]">
+      {/* Top Floating Luxury Header Navigation */}
       <Navbar
         onOpenTripPlanner={() => handleOpenTripPlanner()}
         onOpenConcierge={() => setIsConciergeOpen(true)}
@@ -74,7 +106,7 @@ export default function App() {
       />
 
       <main className="flex-grow">
-        {/* Hero Section in Ocean Theme */}
+        {/* Hero Section matching User Mockup */}
         <Hero
           onExploreTours={() => {
             const el = document.getElementById('tours');
@@ -84,7 +116,18 @@ export default function App() {
               handleOpenCuratedToursWithSelection();
             }
           }}
-          onTalkToUs={() => setIsConciergeOpen(true)}
+          onSelectCategory={(category) => {
+            if (category === 'cultural') {
+              const dest = DESTINATIONS.find((d) => d.id === 'cultural-triangle');
+              if (dest) setSelectedDestination(dest);
+            } else if (category === 'wildlife') {
+              const dest = DESTINATIONS.find((d) => d.id === 'wildlife-safari');
+              if (dest) setSelectedDestination(dest);
+            } else if (category === 'coastal') {
+              const dest = DESTINATIONS.find((d) => d.id === 'southern-beaches');
+              if (dest) setSelectedDestination(dest);
+            }
+          }}
         />
 
         {/* Section 2: Iconic Destinations */}
@@ -98,15 +141,27 @@ export default function App() {
           onPlanTripWithTour={(tourTitle) => handleOpenTripPlanner(undefined, tourTitle)}
         />
 
-        {/* Section 4: Why Travel With Us */}
+        {/* Section 4: Authentic Original Tour Photos Album */}
+        <TourAlbumSection
+          photos={ORIGINAL_TOUR_PHOTOS}
+          photoImages={photoImages}
+          onOpenPhotoModal={(idx) => {
+            setSelectedPhotoIndex(idx);
+            setIsPhotoModalOpen(true);
+          }}
+          onUploadMultiple={handleUploadMultiple}
+          onUploadSingle={handleUploadSingle}
+        />
+
+        {/* Section 5: Why Travel With Us */}
         <WhyTravelSection />
 
-        {/* Section 4: Guest Stories */}
+        {/* Section 6: Guest Stories */}
         <TestimonialsSection
           onOpenAllReviews={() => setIsStoriesOpen(true)}
         />
 
-        {/* Section 5: Call to Action Banner */}
+        {/* Section 7: Call to Action Banner */}
         <CtaBanner
           onPlanTrip={() => handleOpenTripPlanner()}
         />
@@ -135,22 +190,40 @@ export default function App() {
         onBookTour={(tourTitle) => handleOpenTripPlanner(undefined, tourTitle)}
       />
 
+      {/* Tour Photos Album Modal */}
+      <TourAlbumModal
+        isOpen={isPhotoModalOpen}
+        onClose={() => setIsPhotoModalOpen(false)}
+        photos={ORIGINAL_TOUR_PHOTOS}
+        currentPhotoIndex={selectedPhotoIndex}
+        onSelectIndex={(idx) => setSelectedPhotoIndex(idx)}
+        photoImages={photoImages}
+        onUploadSingle={handleUploadSingle}
+        onPlanTrip={(tourTitle) => handleOpenTripPlanner(undefined, tourTitle)}
+      />
+
       <ExperiencesModal
         isOpen={isExperiencesOpen}
         onClose={() => setIsExperiencesOpen(false)}
-        onSelectExperience={(expTitle) => handleOpenTripPlanner(undefined, `Experience: ${expTitle}`)}
+        onSelectExperience={(title: string) => handleOpenTripPlanner(undefined, title)}
       />
 
       <HeritageModal
         isOpen={isHeritageOpen}
         onClose={() => setIsHeritageOpen(false)}
-        onPlanTrip={() => handleOpenTripPlanner()}
+        onPlanTrip={() => {
+          setIsHeritageOpen(false);
+          handleOpenTripPlanner();
+        }}
       />
 
       <GuestStoriesModal
         isOpen={isStoriesOpen}
         onClose={() => setIsStoriesOpen(false)}
-        onPlanTrip={() => handleOpenTripPlanner()}
+        onPlanTrip={() => {
+          setIsStoriesOpen(false);
+          handleOpenTripPlanner();
+        }}
       />
 
       <ConciergeModal
@@ -169,7 +242,6 @@ export default function App() {
         type={legalModalType}
         onClose={() => setLegalModalType(null)}
       />
-
     </div>
   );
 }
