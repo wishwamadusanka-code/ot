@@ -74,9 +74,63 @@ export const Hero: React.FC<HeroProps> = ({ onExploreTours, onSelectCategory }) 
     <div className="relative bg-[#FAF7F2] overflow-hidden">
       
       {/* ========================================================================= */}
-      {/* 1. TOP PANORAMIC HERO SECTION (Sigiriya Lion Rock, Lake & Viewpoint)      */}
+      {/* 1. MOBILE HERO: BACKGROUND IMAGE 100% VISIBLE WITH TAB REARRANGED BELOW  */}
       {/* ========================================================================= */}
-      <section className="relative min-h-[520px] sm:min-h-[620px] lg:min-h-[700px] w-full flex items-center overflow-hidden bg-[#0C2340]">
+      <section className="sm:hidden flex flex-col bg-[#FAF7F2]">
+        
+        {/* Unobstructed Panoramic Scenery Banner */}
+        <div className="relative w-full h-[280px] overflow-hidden bg-[#0C2340]">
+          <img
+            src={sigiriyaHeroImg}
+            alt="Sigiriya Lion Rock Panoramic View with Explorer"
+            className="w-full h-full object-cover object-[center_35%]"
+            referrerPolicy="no-referrer"
+            decoding="async"
+          />
+          {/* Subtle natural vignette */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#FAF7F2] via-transparent to-black/25 pointer-events-none" />
+          <div className="absolute top-3 right-3 bg-[#0C2340]/80 backdrop-blur-xs text-[#E5A83B] text-[10px] tracking-widest uppercase px-3 py-1 rounded-full border border-white/20 shadow-xs">
+            Sigiriya Lion Rock
+          </div>
+        </div>
+
+        {/* Content & "Explore Our Tours" Tab Rearranged Cleanly Below the Photo */}
+        <div className="px-5 pt-2 pb-8 text-center bg-[#FAF7F2]">
+          
+          {/* Pearl Pin Accent */}
+          <div className="flex items-center justify-center gap-2 mb-3">
+            <span className="h-[1.5px] w-8 bg-[#C08A3E]" />
+            <Pearl size={8} />
+            <span className="h-[1.5px] w-8 bg-[#C08A3E]" />
+          </div>
+
+          <h1 className="font-serif-luxury text-3xl font-medium tracking-tight text-[#0C2340] leading-[1.15] mb-2">
+            Discover Sri Lanka's <br />
+            <span className="font-normal italic">Hidden Treasures</span>
+          </h1>
+
+          <p className="font-serif-luxury text-base text-[#1E3758] italic font-light mb-5 max-w-sm mx-auto leading-relaxed">
+            Authentic journeys. Unforgettable memories.
+          </p>
+
+          <div className="flex justify-center">
+            <button
+              onClick={onExploreTours}
+              className="w-full max-w-xs bg-[#C08A3E] hover:bg-[#A8742A] text-white font-medium text-sm tracking-wide px-7 py-3.5 rounded-xl transition-all duration-200 shadow-md inline-flex items-center justify-center gap-2.5 cursor-pointer active:scale-95"
+            >
+              <span>Explore Our Tours</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* ========================================================================= */}
+      {/* 2. DESKTOP HERO: SIDE-BY-SIDE PANORAMIC EXPEDITION SCENERY               */}
+      {/* ========================================================================= */}
+      <section className="hidden sm:flex relative min-h-[620px] lg:min-h-[700px] w-full items-center overflow-hidden bg-[#0C2340]">
         
         {/* Full-width Panoramic Background Scenery */}
         <div className="absolute inset-0 z-0 overflow-hidden">
@@ -88,31 +142,28 @@ export const Hero: React.FC<HeroProps> = ({ onExploreTours, onSelectCategory }) 
             decoding="async"
           />
           {/* Desktop directional scrim: text on the left stays clear while Sigiriya and explorer shine */}
-          <div className="hidden sm:block absolute inset-0 bg-gradient-to-r from-[#FAF7F2]/95 via-[#FAF7F2]/65 to-transparent sm:w-7/12 lg:w-1/2" />
-          
-          {/* Mobile gentle scrim ensuring both the rock view and the text are clear */}
-          <div className="sm:hidden absolute inset-0 bg-gradient-to-t from-[#FAF7F2] via-[#FAF7F2]/60 to-black/20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#FAF7F2]/95 via-[#FAF7F2]/65 to-transparent sm:w-7/12 lg:w-1/2" />
         </div>
 
         {/* Hero Content Left Lockup */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 sm:py-24 lg:py-32">
-          <div className="max-w-xl text-left bg-[#FAF7F2]/80 sm:bg-transparent backdrop-blur-xs sm:backdrop-blur-none p-5 sm:p-0 rounded-2xl sm:rounded-none border border-white/60 sm:border-0 shadow-sm sm:shadow-none">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full py-24 lg:py-32">
+          <div className="max-w-xl text-left">
             
             {/* Elegant Pearl Pin Accent Bar */}
-            <div className="flex items-center gap-2 mb-3 sm:mb-4">
+            <div className="flex items-center gap-2 mb-4">
               <span className="h-[1.5px] w-8 bg-[#C08A3E]" />
               <Pearl size={8} />
               <span className="h-[1.5px] w-8 bg-[#C08A3E]" />
             </div>
 
             {/* Main Headline in Royal Navy Serif */}
-            <h1 className="font-serif-luxury text-3xl sm:text-6xl lg:text-7xl font-medium tracking-tight text-[#0C2340] leading-[1.1] sm:leading-[1.08] mb-3 sm:mb-4 drop-shadow-xs">
+            <h1 className="font-serif-luxury text-6xl lg:text-7xl font-medium tracking-tight text-[#0C2340] leading-[1.08] mb-4 drop-shadow-xs">
               Discover Sri Lanka's <br />
               <span className="font-normal italic">Hidden Treasures</span>
             </h1>
 
             {/* Subtitle in Italic Serif */}
-            <p className="font-serif-luxury text-base sm:text-2xl text-[#1E3758] italic font-light mb-6 sm:mb-8 max-w-md leading-relaxed">
+            <p className="font-serif-luxury text-2xl text-[#1E3758] italic font-light mb-8 max-w-md leading-relaxed">
               Authentic journeys. Unforgettable memories.
             </p>
 
@@ -120,7 +171,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreTours, onSelectCategory }) 
             <div>
               <button
                 onClick={onExploreTours}
-                className="w-full sm:w-auto bg-[#C08A3E] hover:bg-[#A8742A] text-white font-medium text-sm sm:text-base tracking-wide px-7 py-3.5 rounded-xl transition-all duration-200 shadow-lg shadow-[#C08A3E]/30 inline-flex items-center justify-center gap-2.5 cursor-pointer active:scale-95 group"
+                className="bg-[#C08A3E] hover:bg-[#A8742A] text-white font-medium text-base tracking-wide px-8 py-4 rounded-xl transition-all duration-200 shadow-lg shadow-[#C08A3E]/30 inline-flex items-center gap-2.5 cursor-pointer active:scale-95 group"
               >
                 <span>Explore Our Tours</span>
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -133,7 +184,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreTours, onSelectCategory }) 
       </section>
 
       {/* ========================================================================= */}
-      {/* 2. SIGNATURE CURVED DIVIDER WITH 3D PEARL CREST                           */}
+      {/* 3. SIGNATURE CURVED DIVIDER WITH 3D PEARL CREST                           */}
       {/* ========================================================================= */}
       <div className="relative -mt-6 sm:-mt-14 z-20 w-full pointer-events-none">
         
@@ -190,7 +241,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreTours, onSelectCategory }) 
       </div>
 
       {/* ========================================================================= */}
-      {/* 3. THREE SIGNATURE FEATURE CARDS (Cultural, Wildlife, Coastal)            */}
+      {/* 4. THREE SIGNATURE FEATURE CARDS (Cultural, Wildlife, Coastal)            */}
       {/* ========================================================================= */}
       <section className="relative z-10 pt-2 pb-20 sm:pb-28 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#EAF4F7] via-[#F2F8FA] to-[#E5F1F5] overflow-hidden">
         
