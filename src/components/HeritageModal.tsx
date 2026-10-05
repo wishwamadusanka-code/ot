@@ -86,10 +86,10 @@ export const HeritageModal: React.FC<HeritageModalProps> = ({
                 <Compass className="w-5 h-5" />
               </div>
               <h4 className="font-serif-luxury text-base text-white font-medium mb-1.5">
-                Executive Chauffeur Fleet
+                Private Chauffeur Service
               </h4>
               <p className="text-slate-300 text-xs font-light leading-relaxed">
-                Air-conditioned luxury fleet including Mercedes-Benz sedans, Toyota Alphard VIP executive vans, and custom 4x4 safari cruisers with onboard WiFi, bottled spring water, and cool towels.
+                Air-conditioned private luxury travel with seasoned, SLTDA-licensed English-speaking chauffeur-guides ensuring tranquil, safe, and personalized journeys across the island.
               </p>
             </div>
 

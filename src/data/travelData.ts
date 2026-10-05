@@ -116,22 +116,20 @@ export const CURATED_TOURS: CuratedTour[] = [
     duration: '14 Days / 13 Nights',
     pace: 'Relaxed & Immersive',
     regions: ['Cultural Triangle', 'Kandy & Hill Country', 'Yala National Park', 'Galle & Southern Coast'],
-    startingFrom: '$4,850 per guest',
     image: culturalTriangleImg,
     overview:
       'A seamless masterpiece capturing Sri Lanka’s ancient UNESCO kingdoms, private tea estates, wilderness leopard tracking, and pristine southern oceanfront villas.',
-    itinerary: [
-      { day: 'Day 1–3', title: 'Arrival & Cultural Triangle', desc: 'VIP airport transfer, Geoffrey Bawa architecture at Kandalama, dawn ascent of Sigiriya Lion Rock.', stay: 'Water Garden Sigiriya' },
-      { day: 'Day 4–5', title: 'Sacred Kandy & Knuckles Range', desc: 'Temple of the Tooth private blessings, Royal Botanical Gardens, artisanal spice exploration.', stay: 'Kings Pavilion Kandy' },
-      { day: 'Day 6–8', title: 'Ceylon Tea Country & Iconic Train', desc: 'First-class observation carriage to Hatton, stay in restored 1880s planter bungalows, master tea tasting.', stay: 'Ceylon Tea Trails' },
-      { day: 'Day 9–10', title: 'Wild Yala Safari & Leopard Tracking', desc: 'Private naturalist game drives in Block 1 & 5, luxury tented sanctuary by the Indian Ocean.', stay: 'Wild Coast Tented Lodge' },
-      { day: 'Day 11–13', title: 'Galle Dutch Fort & Private Coastal Villa', desc: 'Whale watching catamaran, private chef seafood dinners, historic ramparts stroll.', stay: 'Cape Weligama' },
-      { day: 'Day 14', title: 'Colombo Farewell & Departure', desc: 'Chauffeur transfer along the Southern Expressway to Bandaranaike International Airport.', stay: 'Departure Lounge VIP' }
+    highlights: [
+      'Dawn ascent of 5th-century Sigiriya Rock fortress with private archaeologist',
+      'First-class scenic observation rail journey through misty tea country',
+      'Exclusive dawn & dusk private naturalist game drives in Yala National Park',
+      'Private ocean catamaran cruise & 17th-century Galle Dutch Fort sunset walk',
+      'Bespoke hand-picked stays in heritage tea planter bungalows and ocean villas'
     ],
     inclusions: [
-      'Dedicated English-speaking Licensed Chauffeur Guide in luxury Mercedes/Alphard',
-      'All 5-Star Boutique & Relais & Châteaux accommodations with breakfast & dinner',
-      'All national park private 4x4 jeeps, trackers, and entrance permits included',
+      'Dedicated English-speaking Licensed Private Chauffeur Guide',
+      'Handpicked 5-Star Boutique & Relais & Châteaux accommodations with breakfast & dinner',
+      'All national park private safari jeeps, trackers, and entrance permits included',
       'Domestic scenic train observation seats and private tea estate permits',
       '24/7 Concierge line directly overseen by founder Vishwa Madusanka'
     ]
@@ -143,21 +141,20 @@ export const CURATED_TOURS: CuratedTour[] = [
     duration: '9 Days / 8 Nights',
     pace: 'Serene & Cultural',
     regions: ['Colombo', 'Kandy', 'Hatton Tea Valleys', 'Ella'],
-    startingFrom: '$3,200 per guest',
     image: hillCountryImg,
     overview:
       'Designed for lovers of vintage trains, misty mountain panoramas, and the refined serenity of British colonial tea planters’ estates.',
-    itinerary: [
-      { day: 'Day 1–2', title: 'Colombo Colonial Splendor', desc: 'Private colonial heritage architectural tour and dining at Ministry of Crab.', stay: 'Galle Face Hotel' },
-      { day: 'Day 3–4', title: 'Sacred Foothills of Kandy', desc: 'Artisan batik workshops, Udawatta Kele bird sanctuary, and private Kandyan dance performance.', stay: 'Elephant Stables Kandy' },
-      { day: 'Day 5–7', title: 'Heart of Ceylon Tea Country', desc: 'Bespoke high tea, trail hikes through emerald tea fields, scenic Nine Arch Bridge.', stay: 'Nine Skies Ella' },
-      { day: 'Day 8–9', title: 'Ella Peak & Return to Coast', desc: 'Waterfalls expedition and scenic drive down to Colombo for departure.', stay: 'The Wallawwa' }
+    highlights: [
+      'Private masterclass and tasting of rare Silver Tip teas with resident tea master',
+      'Iconic Ella Nine Arch Bridge & Little Adam’s Peak private sunrise walk',
+      'Private temple blessings in sacred Kandy and artisanal craft workshops',
+      'Afternoon high tea served on emerald hillside croquet lawns'
     ],
     inclusions: [
-      'Private air-conditioned executive vehicle with dedicated expert chauffeur',
+      'Private air-conditioned luxury travel with dedicated expert chauffeur-guide',
       'Curated stays in boutique tea estate bungalows',
       'Private masterclass on single-origin black, green, and silver tip teas',
-      'All site permits and heritage passes'
+      'All site permits, heritage passes, and VIP train seating'
     ]
   },
   {
@@ -167,18 +164,17 @@ export const CURATED_TOURS: CuratedTour[] = [
     duration: '10 Days / 9 Nights',
     pace: 'Active Wildlife & Coastal Relaxation',
     regions: ['Udawalawe', 'Yala National Park', 'Mirissa', 'Galle'],
-    startingFrom: '$3,750 per guest',
     image: wildlifeSafariImg,
     overview:
       'Combine heart-pounding dawn leopard tracking in Yala and wild elephant herds with idyllic private coastal relaxation in southern Sri Lanka.',
-    itinerary: [
-      { day: 'Day 1–2', title: 'Elephant Transit & Udawalawe', desc: 'Support rescued orphan calves and explore expansive elephant herds.', stay: 'Kalu’s Hideaway' },
-      { day: 'Day 3–5', title: 'Deep Wilderness of Yala', desc: 'Four private game drives focusing on leopards, sloth bears, and mugger crocodiles.', stay: 'Chena Huts by Uga' },
-      { day: 'Day 6–8', title: 'Private Mirissa Oceanfront & Whales', desc: 'Exclusive catamaran cruise to see blue whales and spinner dolphins.', stay: 'Eraeliya Villas & Gardens' },
-      { day: 'Day 9–10', title: 'Historic Galle Fort & Airport Departure', desc: 'Sunset cocktails on the 400-year-old fort ramparts followed by transfer to Colombo.', stay: 'Amangalla' }
+    highlights: [
+      'Four private game drives focusing on leopards, sloth bears, and wild elephants',
+      'Exclusive private boat charter for blue whale and dolphin watching in Mirissa',
+      'Sunset cocktails on the 400-year-old UNESCO Galle Fort ramparts',
+      'Secluded beachfront villa relaxation with private chef dinners'
     ],
     inclusions: [
-      'Private custom safari jeep with senior wildlife guide',
+      'Private custom safari jeep with senior wildlife naturalist guide',
       'Exclusive private boat charter for blue whale watching',
       'All luxury lodges, daily breakfast, and gourmet safari picnic lunches'
     ]

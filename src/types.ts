@@ -19,10 +19,9 @@ export interface CuratedTour {
   duration: string;
   pace: string;
   regions: string[];
-  startingFrom: string;
   image: string;
   overview: string;
-  itinerary: { day: string; title: string; desc: string; stay: string }[];
+  highlights: string[];
   inclusions: string[];
 }
 

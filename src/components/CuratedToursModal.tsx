@@ -107,21 +107,21 @@ export const CuratedToursModal: React.FC<CuratedToursModalProps> = ({
               </span>
             </div>
             <div>
-              <span className="text-slate-400 block text-[10px] uppercase tracking-wider">Starting Rate</span>
-              <span className="text-[#E5A83B] font-semibold mt-0.5 block">
-                {activeTour.startingFrom}
+              <span className="text-slate-400 block text-[10px] uppercase tracking-wider">Travel Rhythm</span>
+              <span className="text-[#E5A83B] font-medium mt-0.5 block">
+                {activeTour.pace}
               </span>
             </div>
             <div>
-              <span className="text-slate-400 block text-[10px] uppercase tracking-wider">Style & Vehicle</span>
+              <span className="text-slate-400 block text-[10px] uppercase tracking-wider">Journey Format</span>
               <span className="text-white font-medium mt-0.5 block truncate">
-                Private Mercedes / Alphard
+                100% Bespoke & Private
               </span>
             </div>
             <div>
               <span className="text-slate-400 block text-[10px] uppercase tracking-wider">Tour Connoisseur</span>
               <span className="text-white font-medium mt-0.5 block truncate">
-                SLTDA Licensed Chauffeur
+                SLTDA Licensed Guide
               </span>
             </div>
           </div>
@@ -132,36 +132,26 @@ export const CuratedToursModal: React.FC<CuratedToursModalProps> = ({
               Expedition Overview
             </h4>
             <p className="text-slate-300 text-xs sm:text-sm leading-relaxed font-light">
-              {activeTour.overview} Every day is private, customized to your rhythm, with private airport escort and dedicated local guide.
+              {activeTour.overview} Every journey is fully private and customized around your preferred dates, rhythm, and luxury boutique preferences.
             </p>
           </div>
 
-          {/* Day by Day Itinerary */}
+          {/* Key Expedition Highlights */}
           <div>
-            <h4 className="text-xs font-semibold tracking-[0.2em] uppercase text-white mb-4">
-              Day-by-Day Private Itinerary
+            <h4 className="text-xs font-semibold tracking-[0.2em] uppercase text-white mb-3">
+              Key Expedition Highlights
             </h4>
-            <div className="space-y-3">
-              {activeTour.itinerary.map((step, idx) => (
+            <div className="space-y-2.5">
+              {activeTour.highlights.map((highlight, idx) => (
                 <div
                   key={idx}
-                  className="bg-[#0A1A2A] border border-slate-800/80 rounded-xl p-4 transition-colors hover:border-slate-700"
+                  className="bg-[#0A1A2A] border border-slate-800/80 rounded-xl p-3.5 flex items-start gap-3 transition-colors hover:border-slate-700"
                 >
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-1.5">
-                    <div className="flex items-center gap-2">
-                      <span className="text-[10px] font-semibold tracking-wider uppercase text-[#E5A83B] bg-slate-900 px-2 py-0.5 rounded border border-slate-800">
-                        {step.day}
-                      </span>
-                      <h5 className="text-white font-medium text-sm font-serif-luxury">
-                        {step.title}
-                      </h5>
-                    </div>
-                    <span className="text-[11px] text-slate-400 italic">
-                      Stay: {step.stay}
-                    </span>
-                  </div>
-                  <p className="text-slate-300 text-xs font-light leading-relaxed pl-1">
-                    {step.desc}
+                  <span className="text-[10px] font-semibold tracking-wider text-[#E5A83B] bg-slate-900 border border-slate-800 px-2 py-0.5 rounded flex-shrink-0 mt-0.5">
+                    {String(idx + 1).padStart(2, '0')}
+                  </span>
+                  <p className="text-slate-200 text-xs sm:text-sm font-light leading-relaxed">
+                    {highlight}
                   </p>
                 </div>
               ))}
