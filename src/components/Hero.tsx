@@ -73,42 +73,30 @@ export const Hero: React.FC<HeroProps> = ({ onExploreTours, onSelectCategory }) 
   return (
     <div className="relative bg-[#FAF7F2] overflow-hidden">
       
-      {/* ======================================================== */}
-      {/* 1. HERO PANORAMIC SECTION (Sigiriya Lake & Hiker View) */}
-      {/* ======================================================== */}
-      <section className="relative w-full flex flex-col sm:block overflow-hidden bg-[#FAF7F2]">
+      {/* ========================================================================= */}
+      {/* 1. TOP PANORAMIC HERO SECTION (Sigiriya Lion Rock, Lake & Viewpoint)      */}
+      {/* ========================================================================= */}
+      <section className="relative min-h-[520px] sm:min-h-[620px] lg:min-h-[700px] w-full flex items-center overflow-hidden bg-[#0C2340]">
         
-        {/* Desktop Background Scenery */}
-        <div className="hidden sm:block absolute inset-0 z-0">
+        {/* Full-width Panoramic Background Scenery */}
+        <div className="absolute inset-0 z-0 overflow-hidden">
           <img
             src={sigiriyaHeroImg}
             alt="Sigiriya Lion Rock Lake Panoramic View with Explorer"
-            className="w-full h-full object-cover object-[center_35%]"
+            className="w-full h-full object-cover object-[center_30%]"
             referrerPolicy="no-referrer"
             decoding="async"
           />
-          {/* Gentle directional scrim on desktop so text on the left stays clear while preserving Sigiriya */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#FAF7F2]/95 via-[#FAF7F2]/60 to-transparent sm:w-3/5 lg:w-1/2" />
+          {/* Desktop directional scrim: text on the left stays clear while Sigiriya and explorer shine */}
+          <div className="hidden sm:block absolute inset-0 bg-gradient-to-r from-[#FAF7F2]/95 via-[#FAF7F2]/65 to-transparent sm:w-7/12 lg:w-1/2" />
+          
+          {/* Mobile gentle scrim ensuring both the rock view and the text are clear */}
+          <div className="sm:hidden absolute inset-0 bg-gradient-to-t from-[#FAF7F2] via-[#FAF7F2]/60 to-black/20" />
         </div>
 
-        {/* Mobile View: Dedicated Panoramic Photo Frame so Sigiriya & Hiker are 100% visible on phones */}
-        <div className="sm:hidden relative w-full aspect-[16/10] min-h-[220px] overflow-hidden bg-slate-900 border-b border-[#D4A762]/30">
-          <img
-            src={sigiriyaHeroImg}
-            alt="Sigiriya Lion Rock Lake Panoramic View"
-            className="w-full h-full object-cover object-[center_35%]"
-            referrerPolicy="no-referrer"
-            decoding="async"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#FAF7F2] via-transparent to-black/20" />
-          <div className="absolute bottom-3 right-3 bg-black/60 backdrop-blur-xs text-[#E5A83B] text-[10px] px-2.5 py-0.5 rounded-full border border-white/20">
-            Sigiriya Lion Rock Fortress
-          </div>
-        </div>
-
-        {/* Hero Content Lockup */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8 sm:py-24 lg:py-32">
-          <div className="max-w-xl text-left">
+        {/* Hero Content Left Lockup */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 sm:py-24 lg:py-32">
+          <div className="max-w-xl text-left bg-[#FAF7F2]/80 sm:bg-transparent backdrop-blur-xs sm:backdrop-blur-none p-5 sm:p-0 rounded-2xl sm:rounded-none border border-white/60 sm:border-0 shadow-sm sm:shadow-none">
             
             {/* Elegant Pearl Pin Accent Bar */}
             <div className="flex items-center gap-2 mb-3 sm:mb-4">
@@ -144,9 +132,9 @@ export const Hero: React.FC<HeroProps> = ({ onExploreTours, onSelectCategory }) 
 
       </section>
 
-      {/* ======================================================== */}
-      {/* 2. SIGNATURE CURVED DIVIDER WITH 3D PEARL CREST          */}
-      {/* ======================================================== */}
+      {/* ========================================================================= */}
+      {/* 2. SIGNATURE CURVED DIVIDER WITH 3D PEARL CREST                           */}
+      {/* ========================================================================= */}
       <div className="relative -mt-6 sm:-mt-14 z-20 w-full pointer-events-none">
         
         {/* SVG Curve Canvas with Oceanic Transition Tint */}
@@ -201,9 +189,9 @@ export const Hero: React.FC<HeroProps> = ({ onExploreTours, onSelectCategory }) 
 
       </div>
 
-      {/* ======================================================== */}
-      {/* 3. THREE SIGNATURE FEATURE CARDS (OCEAN THEMED)          */}
-      {/* ======================================================== */}
+      {/* ========================================================================= */}
+      {/* 3. THREE SIGNATURE FEATURE CARDS (Cultural, Wildlife, Coastal)            */}
+      {/* ========================================================================= */}
       <section className="relative z-10 pt-2 pb-20 sm:pb-28 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#EAF4F7] via-[#F2F8FA] to-[#E5F1F5] overflow-hidden">
         
         {/* Layered Oceanic Background Watermarks & Swells */}
@@ -269,35 +257,39 @@ export const Hero: React.FC<HeroProps> = ({ onExploreTours, onSelectCategory }) 
           </h2>
         </div>
 
-        {/* Cards Grid with Ocean Styling & Explicit Heights for Rock-Solid Mobile Rendering */}
+        {/* Cards Grid: Guaranteed Visible Top Images on Every Screen */}
         <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           
           {/* Card 1: Cultural Wonders */}
           <div 
             onClick={() => onSelectCategory && onSelectCategory('cultural')}
-            className="group bg-white/95 backdrop-blur-sm rounded-2xl overflow-hidden shadow-[0_10px_30px_rgba(16,106,124,0.08)] hover:shadow-[0_20px_45px_rgba(16,106,124,0.18)] transition-all duration-300 border border-[#CDE3E9] hover:border-[#B8863D]/70 flex flex-col cursor-pointer transform hover:-translate-y-1.5"
+            className="group bg-white rounded-2xl overflow-hidden shadow-[0_10px_30px_rgba(16,106,124,0.08)] hover:shadow-[0_20px_45px_rgba(16,106,124,0.18)] transition-all duration-300 border border-[#CDE3E9] hover:border-[#B8863D]/70 flex flex-col cursor-pointer transform hover:-translate-y-1.5"
           >
-            {/* Image Container with explicit height to guarantee rendering across mobile WebKit */}
-            <div className="relative w-full h-52 sm:h-56 md:h-auto md:aspect-[16/10] min-h-[190px] overflow-hidden bg-slate-900">
+            {/* Dedicated Top Image Container with explicit height */}
+            <div className="relative w-full h-56 sm:h-64 overflow-hidden bg-slate-900">
               <img
                 src={culturalTriangleImg}
                 alt="Cultural Wonders - Ancient Sigiriya & Temples"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 block"
                 referrerPolicy="no-referrer"
                 decoding="async"
               />
-              {/* Oceanic Tag Badge */}
-              <div className="absolute top-3 left-3 bg-[#0C2340]/85 backdrop-blur-xs text-[#E5A83B] text-[9px] uppercase tracking-widest px-2.5 py-1 rounded-md font-medium border border-white/20">
+              {/* Oceanic Realm Tag Badge */}
+              <div className="absolute top-3 left-3 bg-[#0C2340]/85 backdrop-blur-xs text-[#E5A83B] text-[10px] uppercase tracking-widest px-3 py-1 rounded-md font-medium border border-white/20 shadow-xs">
                 Heritage & Lakes
               </div>
-              {/* Floating Center Badge */}
-              <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 w-11 h-11 rounded-full bg-[#B8863D] border-2 border-white shadow-md flex items-center justify-center group-hover:scale-110 transition-transform">
+            </div>
+
+            {/* Floating Center Badge positioned cleanly over the seam */}
+            <div className="relative -mt-6 flex justify-center z-10 pointer-events-none">
+              <div className="w-12 h-12 rounded-full bg-[#B8863D] border-[3px] border-white shadow-lg flex items-center justify-center group-hover:scale-110 transition-transform">
                 <TempleStupaIcon />
               </div>
             </div>
 
-            <div className="pt-8 pb-6 px-6 text-center flex-grow flex flex-col justify-center">
-              <h3 className="font-serif-luxury text-xl sm:text-2xl text-[#0C2340] font-semibold mb-1 group-hover:text-[#B8863D] transition-colors">
+            {/* Card Body */}
+            <div className="pt-3 pb-6 px-6 text-center flex-grow flex flex-col justify-center">
+              <h3 className="font-serif-luxury text-2xl text-[#0C2340] font-semibold mb-1 group-hover:text-[#B8863D] transition-colors">
                 Cultural Wonders
               </h3>
               <p className="font-serif-luxury text-sm text-[#4E6277] italic font-light mb-3">
@@ -313,29 +305,33 @@ export const Hero: React.FC<HeroProps> = ({ onExploreTours, onSelectCategory }) 
           {/* Card 2: Wildlife & Nature */}
           <div 
             onClick={() => onSelectCategory && onSelectCategory('wildlife')}
-            className="group bg-white/95 backdrop-blur-sm rounded-2xl overflow-hidden shadow-[0_10px_30px_rgba(16,106,124,0.08)] hover:shadow-[0_20px_45px_rgba(16,106,124,0.18)] transition-all duration-300 border border-[#CDE3E9] hover:border-[#2C7A58]/70 flex flex-col cursor-pointer transform hover:-translate-y-1.5"
+            className="group bg-white rounded-2xl overflow-hidden shadow-[0_10px_30px_rgba(16,106,124,0.08)] hover:shadow-[0_20px_45px_rgba(16,106,124,0.18)] transition-all duration-300 border border-[#CDE3E9] hover:border-[#2C7A58]/70 flex flex-col cursor-pointer transform hover:-translate-y-1.5"
           >
-            {/* Image Container with explicit height to guarantee rendering across mobile WebKit */}
-            <div className="relative w-full h-52 sm:h-56 md:h-auto md:aspect-[16/10] min-h-[190px] overflow-hidden bg-slate-900">
+            {/* Dedicated Top Image Container with explicit height */}
+            <div className="relative w-full h-56 sm:h-64 overflow-hidden bg-slate-900">
               <img
                 src={wildlifeSafariImg}
                 alt="Wildlife & Nature - Elephants & Safari"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 block"
                 referrerPolicy="no-referrer"
                 decoding="async"
               />
-              {/* Oceanic Tag Badge */}
-              <div className="absolute top-3 left-3 bg-[#0C2340]/85 backdrop-blur-xs text-[#48D19B] text-[9px] uppercase tracking-widest px-2.5 py-1 rounded-md font-medium border border-white/20">
+              {/* Oceanic Realm Tag Badge */}
+              <div className="absolute top-3 left-3 bg-[#0C2340]/85 backdrop-blur-xs text-[#48D19B] text-[10px] uppercase tracking-widest px-3 py-1 rounded-md font-medium border border-white/20 shadow-xs">
                 Rivers & Wild Frontiers
               </div>
-              {/* Floating Center Badge */}
-              <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 w-11 h-11 rounded-full bg-[#2C7A58] border-2 border-white shadow-md flex items-center justify-center group-hover:scale-110 transition-transform">
+            </div>
+
+            {/* Floating Center Badge positioned cleanly over the seam */}
+            <div className="relative -mt-6 flex justify-center z-10 pointer-events-none">
+              <div className="w-12 h-12 rounded-full bg-[#2C7A58] border-[3px] border-white shadow-lg flex items-center justify-center group-hover:scale-110 transition-transform">
                 <ElephantIcon />
               </div>
             </div>
 
-            <div className="pt-8 pb-6 px-6 text-center flex-grow flex flex-col justify-center">
-              <h3 className="font-serif-luxury text-xl sm:text-2xl text-[#0C2340] font-semibold mb-1 group-hover:text-[#2C7A58] transition-colors">
+            {/* Card Body */}
+            <div className="pt-3 pb-6 px-6 text-center flex-grow flex flex-col justify-center">
+              <h3 className="font-serif-luxury text-2xl text-[#0C2340] font-semibold mb-1 group-hover:text-[#2C7A58] transition-colors">
                 Wildlife & Nature
               </h3>
               <p className="font-serif-luxury text-sm text-[#4E6277] italic font-light mb-3">
@@ -351,29 +347,33 @@ export const Hero: React.FC<HeroProps> = ({ onExploreTours, onSelectCategory }) 
           {/* Card 3: Coastal Escapes */}
           <div 
             onClick={() => onSelectCategory && onSelectCategory('coastal')}
-            className="group bg-white/95 backdrop-blur-sm rounded-2xl overflow-hidden shadow-[0_10px_30px_rgba(16,106,124,0.08)] hover:shadow-[0_20px_45px_rgba(16,106,124,0.18)] transition-all duration-300 border border-[#CDE3E9] hover:border-[#169BA2]/70 flex flex-col cursor-pointer transform hover:-translate-y-1.5"
+            className="group bg-white rounded-2xl overflow-hidden shadow-[0_10px_30px_rgba(16,106,124,0.08)] hover:shadow-[0_20px_45px_rgba(16,106,124,0.18)] transition-all duration-300 border border-[#CDE3E9] hover:border-[#169BA2]/70 flex flex-col cursor-pointer transform hover:-translate-y-1.5"
           >
-            {/* Image Container with explicit height to guarantee rendering across mobile WebKit */}
-            <div className="relative w-full h-52 sm:h-56 md:h-auto md:aspect-[16/10] min-h-[190px] overflow-hidden bg-slate-900">
+            {/* Dedicated Top Image Container with explicit height */}
+            <div className="relative w-full h-56 sm:h-64 overflow-hidden bg-slate-900">
               <img
                 src={southernBeachesImg}
                 alt="Coastal Escapes - Turquoise Ocean & Palms"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 block"
                 referrerPolicy="no-referrer"
                 decoding="async"
               />
-              {/* Oceanic Tag Badge */}
-              <div className="absolute top-3 left-3 bg-[#0C2340]/85 backdrop-blur-xs text-[#38BDF8] text-[9px] uppercase tracking-widest px-2.5 py-1 rounded-md font-medium border border-white/20">
+              {/* Oceanic Realm Tag Badge */}
+              <div className="absolute top-3 left-3 bg-[#0C2340]/85 backdrop-blur-xs text-[#38BDF8] text-[10px] uppercase tracking-widest px-3 py-1 rounded-md font-medium border border-white/20 shadow-xs">
                 Sapphire Seas & Reefs
               </div>
-              {/* Floating Center Badge */}
-              <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 w-11 h-11 rounded-full bg-[#169BA2] border-2 border-white shadow-md flex items-center justify-center group-hover:scale-110 transition-transform">
+            </div>
+
+            {/* Floating Center Badge positioned cleanly over the seam */}
+            <div className="relative -mt-6 flex justify-center z-10 pointer-events-none">
+              <div className="w-12 h-12 rounded-full bg-[#169BA2] border-[3px] border-white shadow-lg flex items-center justify-center group-hover:scale-110 transition-transform">
                 <Waves className="w-5 h-5 text-white" />
               </div>
             </div>
 
-            <div className="pt-8 pb-6 px-6 text-center flex-grow flex flex-col justify-center">
-              <h3 className="font-serif-luxury text-xl sm:text-2xl text-[#0C2340] font-semibold mb-1 group-hover:text-[#169BA2] transition-colors">
+            {/* Card Body */}
+            <div className="pt-3 pb-6 px-6 text-center flex-grow flex flex-col justify-center">
+              <h3 className="font-serif-luxury text-2xl text-[#0C2340] font-semibold mb-1 group-hover:text-[#169BA2] transition-colors">
                 Coastal Escapes
               </h3>
               <p className="font-serif-luxury text-sm text-[#4E6277] italic font-light mb-3">
