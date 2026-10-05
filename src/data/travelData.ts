@@ -7,6 +7,8 @@ import wildlifeSafariImg from '../assets/images/destination_wildlife_safari_1791
 
 export { default as oceanPearlEmblem } from '../assets/images/ocean_pearl_official_logo_1791195731610.jpg';
 export { default as homeOceanBackground } from '../assets/images/home_ocean_background_1791195719020.jpg';
+export { default as sigiriyaHeroImg } from '../assets/images/sigiriya_hero_panoramic_1791201062581.jpg';
+export { southernBeachesImg, hillCountryImg, culturalTriangleImg, wildlifeSafariImg };
 
 
 export const DESTINATIONS: Destination[] = [
@@ -127,7 +129,7 @@ export const CURATED_TOURS: CuratedTour[] = [
       'Bespoke hand-picked stays in heritage tea planter bungalows and ocean villas'
     ],
     inclusions: [
-      'Dedicated English-speaking Licensed Private Chauffeur Guide',
+      'Dedicated English-speaking Qualified Chauffeur',
       'Handpicked 5-Star Boutique & Relais & Châteaux accommodations with breakfast & dinner',
       'All national park private safari jeeps, trackers, and entrance permits included',
       'Domestic scenic train observation seats and private tea estate permits',
@@ -151,7 +153,7 @@ export const CURATED_TOURS: CuratedTour[] = [
       'Afternoon high tea served on emerald hillside croquet lawns'
     ],
     inclusions: [
-      'Private air-conditioned luxury travel with dedicated expert chauffeur-guide',
+      'Private air-conditioned luxury travel with dedicated Qualified Chauffeur',
       'Curated stays in boutique tea estate bungalows',
       'Private masterclass on single-origin black, green, and silver tip teas',
       'All site permits, heritage passes, and VIP train seating'
@@ -174,7 +176,7 @@ export const CURATED_TOURS: CuratedTour[] = [
       'Secluded beachfront villa relaxation with private chef dinners'
     ],
     inclusions: [
-      'Private custom safari jeep with senior wildlife naturalist guide',
+      'Private custom safari jeep with senior wildlife naturalist tracker',
       'Exclusive private boat charter for blue whale watching',
       'All luxury lodges, daily breakfast, and gourmet safari picnic lunches'
     ]

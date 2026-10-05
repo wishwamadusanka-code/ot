@@ -7,6 +7,7 @@ import React, { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { DestinationsSection } from './components/DestinationsSection';
+import { CuratedToursSection } from './components/CuratedToursSection';
 import { WhyTravelSection } from './components/WhyTravelSection';
 import { TestimonialsSection } from './components/TestimonialsSection';
 import { CtaBanner } from './components/CtaBanner';
@@ -22,6 +23,7 @@ import { TripPlannerModal } from './components/TripPlannerModal';
 import { LegalModal } from './components/LegalModal';
 
 import { Destination } from './types';
+import { DESTINATIONS } from './data/travelData';
 
 export default function App() {
   // Modal states
@@ -72,9 +74,16 @@ export default function App() {
       />
 
       <main className="flex-grow">
-        {/* Hero Section */}
+        {/* Hero Section in Ocean Theme */}
         <Hero
-          onExploreTours={() => handleOpenCuratedToursWithSelection()}
+          onExploreTours={() => {
+            const el = document.getElementById('tours');
+            if (el) {
+              el.scrollIntoView({ behavior: 'smooth' });
+            } else {
+              handleOpenCuratedToursWithSelection();
+            }
+          }}
           onTalkToUs={() => setIsConciergeOpen(true)}
         />
 
@@ -83,7 +92,13 @@ export default function App() {
           onSelectDestination={(dest) => setSelectedDestination(dest)}
         />
 
-        {/* Section 3: Why Travel With Us */}
+        {/* Section 3: Curated Tours with Prominent Interactive Tabs */}
+        <CuratedToursSection
+          onOpenTourModal={(tourId) => handleOpenCuratedToursWithSelection(tourId)}
+          onPlanTripWithTour={(tourTitle) => handleOpenTripPlanner(undefined, tourTitle)}
+        />
+
+        {/* Section 4: Why Travel With Us */}
         <WhyTravelSection />
 
         {/* Section 4: Guest Stories */}

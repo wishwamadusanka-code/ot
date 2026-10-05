@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Phone, Menu, X, Sparkles } from 'lucide-react';
+import { Compass, Menu, X, ArrowRight, Phone } from 'lucide-react';
 import { oceanPearlEmblem } from '../data/travelData';
-
 
 interface NavbarProps {
   onOpenTripPlanner: () => void;
@@ -18,9 +17,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenConcierge,
   onSelectNav,
   onOpenCuratedTours,
-  onOpenExperiences,
-  onOpenHeritage,
-  onOpenStories
+  onOpenHeritage
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -30,115 +27,137 @@ export const Navbar: React.FC<NavbarProps> = ({
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-[#07131F]/90 backdrop-blur-md border-b border-slate-800/60 transition-all">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+    <header className="sticky top-0 z-40 w-full bg-[#07131F]/95 backdrop-blur-md border-b border-slate-800/80 transition-all shadow-lg">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 sm:h-22 flex items-center justify-between">
         
         {/* Brand Lockup */}
         <button
           onClick={() => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
-          className="flex items-center gap-3 group text-left focus:outline-none focus-visible:ring-1 focus-visible:ring-[#E5A83B]"
+          className="flex items-center gap-3.5 group text-left focus:outline-none"
         >
-          <div className="relative w-10 h-10 rounded-full overflow-hidden border border-[#E5A83B]/60 p-0.5 bg-slate-900 shadow-sm flex items-center justify-center">
+          {/* Logo with beaded pearl ring */}
+          <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-full overflow-hidden p-0.5 shadow-md flex items-center justify-center ring-2 ring-[#E5A83B]/50 group-hover:scale-105 transition-transform duration-200 bg-[#091D2F]">
             <img
               src={oceanPearlEmblem}
-              alt="Ocean Pearl Travel Emblem"
+              alt="Ocean Pearl Travel Official Emblem"
               className="w-full h-full object-cover rounded-full"
               referrerPolicy="no-referrer"
             />
           </div>
+
           <div className="flex flex-col">
-            <span className="font-serif-luxury text-lg tracking-[0.18em] font-semibold text-white group-hover:text-slate-200 transition-colors uppercase">
-              Ocean Pearl
+            <span className="font-serif-luxury text-xl sm:text-2xl tracking-[0.08em] font-semibold text-white group-hover:text-slate-200 transition-colors leading-none uppercase">
+              OCEAN PEARL TRAVEL
             </span>
-            <span className="text-[9px] tracking-[0.25em] text-[#D8A344] font-medium uppercase -mt-0.5">
-              Luxury Travel & Tours
-            </span>
+            <div className="flex items-center gap-1.5 mt-1">
+              <span className="h-[1px] w-3.5 bg-[#E5A83B]/70" />
+              <span className="text-[10px] sm:text-[11px] tracking-[0.16em] text-[#E5A83B] font-medium font-serif-luxury italic">
+                Discover Sri Lanka's Hidden Treasures
+              </span>
+              <span className="h-[1px] w-3.5 bg-[#E5A83B]/70" />
+            </div>
           </div>
         </button>
 
         {/* Desktop Nav Links */}
-        <nav className="hidden lg:flex items-center gap-8 text-[11px] font-medium tracking-[0.16em] uppercase text-slate-300">
+        <nav className="hidden lg:flex items-center gap-8 text-xs font-medium tracking-[0.14em] uppercase text-slate-300">
+          <button
+            onClick={() => {
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            className="text-white font-semibold py-1 cursor-pointer transition-colors relative"
+          >
+            Home
+            <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-4 h-[2px] bg-[#E5A83B] rounded-full" />
+          </button>
+          <button
+            onClick={() => {
+              const el = document.getElementById('tours');
+              if (el) {
+                el.scrollIntoView({ behavior: 'smooth' });
+              } else {
+                onOpenCuratedTours();
+              }
+            }}
+            className="hover:text-[#E5A83B] transition-colors py-1 cursor-pointer"
+          >
+            Tours
+          </button>
           <button
             onClick={() => onSelectNav('destinations')}
-            className="hover:text-[#E5A83B] transition-colors py-1 cursor-pointer focus:outline-none focus-visible:ring-1 focus-visible:ring-[#E5A83B]"
+            className="hover:text-[#E5A83B] transition-colors py-1 cursor-pointer"
           >
             Destinations
           </button>
           <button
-            onClick={onOpenCuratedTours}
-            className="hover:text-[#E5A83B] transition-colors py-1 cursor-pointer focus:outline-none focus-visible:ring-1 focus-visible:ring-[#E5A83B]"
-          >
-            Curated Tours
-          </button>
-          <button
-            onClick={onOpenExperiences}
-            className="hover:text-[#E5A83B] transition-colors py-1 cursor-pointer focus:outline-none focus-visible:ring-1 focus-visible:ring-[#E5A83B]"
-          >
-            Experiences
-          </button>
-          <button
-            onClick={onOpenStories}
-            className="hover:text-[#E5A83B] transition-colors py-1 cursor-pointer focus:outline-none focus-visible:ring-1 focus-visible:ring-[#E5A83B]"
-          >
-            Guest Stories
-          </button>
-          <button
             onClick={onOpenHeritage}
-            className="hover:text-[#E5A83B] transition-colors py-1 cursor-pointer focus:outline-none focus-visible:ring-1 focus-visible:ring-[#E5A83B]"
+            className="hover:text-[#E5A83B] transition-colors py-1 cursor-pointer"
           >
-            Our Heritage
+            About Us
+          </button>
+          <button
+            onClick={onOpenConcierge}
+            className="hover:text-[#E5A83B] transition-colors py-1 cursor-pointer"
+          >
+            Contact
           </button>
         </nav>
 
-        {/* Right Zone: Concierge Desk & CTA */}
-        <div className="hidden sm:flex items-center gap-6">
+        {/* Right CTA Button & Quick Concierge */}
+        <div className="hidden sm:flex items-center gap-3">
           <button
             onClick={onOpenConcierge}
-            className="flex flex-col text-right group py-1 focus:outline-none"
-            title="Connect with our private travel concierge"
+            className="w-9 h-9 rounded-full bg-slate-800/80 hover:bg-slate-700 text-[#E5A83B] flex items-center justify-center border border-slate-700 transition-colors"
+            title="Speak with Local Concierge"
           >
-            <span className="text-[10px] tracking-[0.2em] uppercase text-slate-400 group-hover:text-slate-200 transition-colors font-medium">
-              Concierge
-            </span>
-            <span className="text-[10px] tracking-[0.18em] uppercase text-slate-300 group-hover:text-[#E5A83B] transition-colors font-semibold flex items-center justify-end gap-1">
-              <Phone className="w-2.5 h-2.5 text-[#E5A83B]" />
-              Desk
-            </span>
+            <Phone className="w-4 h-4" />
           </button>
-
           <button
             onClick={onOpenTripPlanner}
-            className="bg-[#E5A83B] hover:bg-[#d4952b] text-slate-950 font-semibold px-5 py-2.5 rounded-full text-[11px] tracking-[0.14em] uppercase transition-all duration-200 shadow-md hover:shadow-[#E5A83B]/20 active:scale-95 flex items-center gap-1.5 cursor-pointer"
+            className="bg-[#E5A83B] hover:bg-[#d5982b] text-slate-950 font-semibold text-xs tracking-wider uppercase px-6 py-2.5 rounded-full transition-all duration-200 shadow-md flex items-center gap-2 cursor-pointer active:scale-95"
           >
-            <Sparkles className="w-3.5 h-3.5 text-slate-900" />
-            Plan Your Journey
+            <Compass className="w-3.5 h-3.5 text-slate-950" />
+            <span>Plan Your Trip</span>
+            <ArrowRight className="w-3.5 h-3.5" />
           </button>
         </div>
 
-        {/* Mobile menu button */}
-        <div className="flex sm:hidden items-center gap-2">
-          <button
-            onClick={onOpenTripPlanner}
-            className="bg-[#E5A83B] text-slate-950 font-semibold px-3 py-1.5 rounded-full text-[10px] tracking-[0.1em] uppercase"
-          >
-            Plan
-          </button>
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-slate-300 hover:text-white rounded-lg focus:outline-none"
-            aria-label="Toggle navigation menu"
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
-        </div>
+        {/* Mobile Menu Toggle */}
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="lg:hidden p-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition-colors focus:outline-none"
+          aria-label="Toggle navigation menu"
+        >
+          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
+
       </div>
 
-      {/* Mobile drawer */}
+      {/* Mobile Nav Drawer */}
       {mobileMenuOpen && (
-        <div className="sm:hidden bg-[#091827] border-b border-slate-800 px-6 py-6 space-y-4">
-          <div className="flex flex-col gap-4 text-xs uppercase tracking-widest text-slate-300 font-medium">
+        <div className="lg:hidden bg-[#07131F] border-b border-slate-800 px-6 py-6 space-y-4 animate-in slide-in-from-top-2 duration-200">
+          <div className="flex flex-col gap-3 text-xs uppercase tracking-widest text-slate-200 font-medium">
+            <button
+              onClick={() => handleNavClick(() => window.scrollTo({ top: 0, behavior: 'smooth' }))}
+              className="text-left py-2 text-[#E5A83B] font-semibold"
+            >
+              Home
+            </button>
+            <button
+              onClick={() => handleNavClick(() => {
+                const el = document.getElementById('tours');
+                if (el) {
+                  el.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                  onOpenCuratedTours();
+                }
+              })}
+              className="text-left py-2 hover:text-[#E5A83B]"
+            >
+              Tours
+            </button>
             <button
               onClick={() => handleNavClick(() => onSelectNav('destinations'))}
               className="text-left py-2 hover:text-[#E5A83B]"
@@ -146,43 +165,26 @@ export const Navbar: React.FC<NavbarProps> = ({
               Destinations
             </button>
             <button
-              onClick={() => handleNavClick(onOpenCuratedTours)}
-              className="text-left py-2 hover:text-[#E5A83B]"
-            >
-              Curated Tours
-            </button>
-            <button
-              onClick={() => handleNavClick(onOpenExperiences)}
-              className="text-left py-2 hover:text-[#E5A83B]"
-            >
-              Experiences
-            </button>
-            <button
-              onClick={() => handleNavClick(onOpenStories)}
-              className="text-left py-2 hover:text-[#E5A83B]"
-            >
-              Guest Stories
-            </button>
-            <button
               onClick={() => handleNavClick(onOpenHeritage)}
               className="text-left py-2 hover:text-[#E5A83B]"
             >
-              Our Heritage
+              About Us
             </button>
             <button
               onClick={() => handleNavClick(onOpenConcierge)}
-              className="text-left py-2 text-[#E5A83B] flex items-center gap-2"
+              className="text-left py-2 hover:text-[#E5A83B]"
             >
-              <Phone className="w-3.5 h-3.5" />
-              Concierge Desk (+94 77 550 7506)
+              Contact
             </button>
           </div>
-          <div className="pt-2">
+
+          <div className="pt-3 border-t border-slate-800 flex flex-col gap-2">
             <button
               onClick={() => handleNavClick(onOpenTripPlanner)}
-              className="w-full bg-[#E5A83B] text-slate-950 font-semibold py-3 rounded-full text-xs tracking-widest uppercase shadow-md"
+              className="w-full bg-[#E5A83B] hover:bg-[#d5982b] text-slate-950 font-semibold text-xs tracking-wider uppercase py-3 rounded-full flex items-center justify-center gap-2 cursor-pointer shadow-md"
             >
-              Plan Your Journey
+              <Compass className="w-4 h-4" />
+              Plan Your Trip →
             </button>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, Calendar, Compass, ShieldCheck, Check, Sparkles } from 'lucide-react';
 import { CURATED_TOURS } from '../data/travelData';
 import { CuratedTour } from '../types';
@@ -23,6 +23,14 @@ export const CuratedToursModal: React.FC<CuratedToursModalProps> = ({
     }
     return CURATED_TOURS[0];
   });
+
+  // Synchronize when selectedTourId or modal opens
+  useEffect(() => {
+    if (selectedTourId) {
+      const match = CURATED_TOURS.find((t) => t.id === selectedTourId);
+      if (match) setActiveTour(match);
+    }
+  }, [selectedTourId, isOpen]);
 
   if (!isOpen) return null;
 
@@ -51,32 +59,58 @@ export const CuratedToursModal: React.FC<CuratedToursModalProps> = ({
           </button>
         </div>
 
-        {/* Tour Selection Tabs */}
-        <div className="flex border-b border-slate-800 bg-[#091D2F] overflow-x-auto scrollbar-none px-4 py-2 gap-2">
-          {CURATED_TOURS.map((tour) => {
-            const isActive = activeTour.id === tour.id;
-            return (
-              <button
-                key={tour.id}
-                onClick={() => setActiveTour(tour)}
-                className={`px-4 py-2.5 rounded-lg text-xs font-medium tracking-wide transition-all whitespace-nowrap cursor-pointer ${
-                  isActive
-                    ? 'bg-[#E5A83B] text-slate-950 font-semibold shadow'
-                    : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
-                }`}
-              >
-                {tour.title}
-                <span className="ml-2 text-[10px] opacity-80">({tour.duration})</span>
-              </button>
-            );
-          })}
+        {/* Highly Visible Tour Selection Tabs */}
+        <div className="bg-[#05111B] border-b border-slate-800 p-3 sm:p-4">
+          <div className="flex items-center justify-between mb-2 px-1">
+            <span className="text-[10px] tracking-[0.22em] uppercase font-semibold text-[#E5A83B]">
+              Select a Curated Journey:
+            </span>
+            <span className="text-[10px] text-slate-400">
+              {CURATED_TOURS.length} Expeditions Available
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+            {CURATED_TOURS.map((tour) => {
+              const isActive = activeTour.id === tour.id;
+              return (
+                <button
+                  key={tour.id}
+                  onClick={() => setActiveTour(tour)}
+                  type="button"
+                  className={`p-3 rounded-xl text-left transition-all duration-200 cursor-pointer flex flex-col justify-between border ${
+                    isActive
+                      ? 'bg-gradient-to-r from-[#E5A83B] via-[#EBB24B] to-[#D5982C] text-slate-950 border-[#E5A83B] shadow-lg shadow-[#E5A83B]/20 ring-1 ring-[#E5A83B]'
+                      : 'bg-[#0A1F33] hover:bg-[#0E283E] text-slate-200 border-slate-700/80 hover:border-slate-500'
+                  }`}
+                >
+                  <div className="flex items-start justify-between gap-1 mb-1">
+                    <span className={`text-xs font-semibold font-serif-luxury leading-tight ${isActive ? 'text-slate-950 font-bold' : 'text-white'}`}>
+                      {tour.title}
+                    </span>
+                    {isActive && (
+                      <span className="w-2 h-2 rounded-full bg-slate-950 flex-shrink-0 mt-1" />
+                    )}
+                  </div>
+                  <div className="flex items-center justify-between mt-2 pt-1.5 border-t border-black/10 dark:border-white/10">
+                    <span className={`text-[10px] font-medium tracking-wide ${isActive ? 'text-slate-900 font-semibold' : 'text-[#E5A83B]'}`}>
+                      {tour.duration}
+                    </span>
+                    <span className={`text-[9px] uppercase tracking-wider px-1.5 py-0.5 rounded ${isActive ? 'bg-black/15 text-slate-950 font-medium' : 'bg-slate-800 text-slate-400'}`}>
+                      {tour.pace.split(' ')[0]}
+                    </span>
+                  </div>
+                </button>
+              );
+            })}
+          </div>
         </div>
 
         {/* Scrollable Content */}
         <div className="overflow-y-auto p-6 sm:p-8 space-y-8 flex-grow">
           
           {/* Active Tour Hero Bar */}
-          <div className="relative rounded-xl overflow-hidden aspect-[16/7] sm:aspect-[21/9] w-full">
+          <div className="relative rounded-xl overflow-hidden aspect-[16/7] sm:aspect-[21/9] w-full border border-slate-800">
             <img
               src={activeTour.image}
               alt={activeTour.title}
@@ -119,9 +153,9 @@ export const CuratedToursModal: React.FC<CuratedToursModalProps> = ({
               </span>
             </div>
             <div>
-              <span className="text-slate-400 block text-[10px] uppercase tracking-wider">Tour Connoisseur</span>
-              <span className="text-white font-medium mt-0.5 block truncate">
-                SLTDA Licensed Guide
+              <span className="text-slate-400 block text-[10px] uppercase tracking-wider">Chauffeur Service</span>
+              <span className="text-[#E5A83B] font-medium mt-0.5 block truncate">
+                Qualified Chauffeurs
               </span>
             </div>
           </div>
@@ -132,7 +166,7 @@ export const CuratedToursModal: React.FC<CuratedToursModalProps> = ({
               Expedition Overview
             </h4>
             <p className="text-slate-300 text-xs sm:text-sm leading-relaxed font-light">
-              {activeTour.overview} Every journey is fully private and customized around your preferred dates, rhythm, and luxury boutique preferences.
+              {activeTour.overview} Every journey is fully private, chauffeured by qualified chauffeurs, and customized around your preferred dates and rhythm.
             </p>
           </div>
 

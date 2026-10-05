@@ -42,7 +42,7 @@ export const DestinationModal: React.FC<DestinationModalProps> = ({
           
           <div className="absolute bottom-6 left-6 right-6">
             <span className="text-[11px] font-semibold tracking-[0.25em] uppercase text-[#E5A83B] block mb-1">
-              Curated Destination Guide
+              Curated Destination Overview
             </span>
             <h2 className="font-serif-luxury text-3xl sm:text-4xl text-white font-medium">
               {destination.name}
@@ -128,7 +128,7 @@ export const DestinationModal: React.FC<DestinationModalProps> = ({
           {/* Action Footer */}
           <div className="pt-4 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
             <span className="text-xs text-slate-400 text-center sm:text-left">
-              Tailor this destination with private chauffeur & boutique stays.
+              Tailor this destination with qualified chauffeurs & tailored stays.
             </span>
             <button
               onClick={() => {

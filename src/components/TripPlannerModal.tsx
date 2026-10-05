@@ -24,8 +24,7 @@ export const TripPlannerModal: React.FC<TripPlannerModalProps> = ({
     return preselectedDestination ? [preselectedDestination] : ['Southern Beaches', 'Hill Country'];
   });
   const [selectedStays, setSelectedStays] = useState<string[]>([
-    'Colonial Tea Planter Bungalows',
-    'Private Beachfront Villas'
+    'Boutique / Luxury (4–5★)'
   ]);
   const [travelMonth, setTravelMonth] = useState('November – February (High Season)');
   const [guestsCount, setGuestsCount] = useState(2);
@@ -156,8 +155,12 @@ export const TripPlannerModal: React.FC<TripPlannerModalProps> = ({
                   <span className="text-white font-medium text-right max-w-xs">{selectedRegions.join(', ')}</span>
                 </div>
                 <div className="flex justify-between text-slate-300">
-                  <span className="text-slate-400">Chauffeur & Fleet:</span>
-                  <span className="text-[#E5A83B] font-medium">Dedicated SLTDA Private Chauffeur</span>
+                  <span className="text-slate-400">Accommodation Type:</span>
+                  <span className="text-white font-medium text-right max-w-xs">{selectedStays.join(', ')}</span>
+                </div>
+                <div className="flex justify-between text-slate-300">
+                  <span className="text-slate-400">Chauffeur Service:</span>
+                  <span className="text-[#E5A83B] font-medium">Qualified Chauffeurs</span>
                 </div>
               </div>
 
@@ -333,27 +336,33 @@ export const TripPlannerModal: React.FC<TripPlannerModalProps> = ({
                     <label className="text-xs font-semibold tracking-wider uppercase text-white block mb-1">
                       2. Preferred Style of Accommodation
                     </label>
+                    <span className="text-[11px] text-slate-400 block mb-3">
+                      Select your preferred accommodation category:
+                    </span>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3">
                       {[
-                        'Colonial Tea Planter Bungalows',
-                        'Private Beachfront Villas',
-                        'Luxury Safari Tented Camps',
-                        'Eco-Luxury Architectural Resorts (Geoffrey Bawa)'
+                        { title: 'Budget / Guesthouse', desc: 'Charming guesthouses, homestays & local eco-lodges' },
+                        { title: 'Comfort (3★)', desc: 'Standard 3-star hotels, reliable amenities & relaxed comfort' },
+                        { title: 'Boutique / Luxury (4–5★)', desc: 'Handpicked 4–5 star boutique villas, tea bungalows & luxury resorts' },
+                        { title: 'A Mix', desc: 'A custom balance tailored by location and experience' }
                       ].map((stay) => {
-                        const isChecked = selectedStays.includes(stay);
+                        const isChecked = selectedStays.includes(stay.title);
                         return (
                           <div
-                            key={stay}
-                            onClick={() => toggleStay(stay)}
-                            className={`p-3 rounded-xl border text-xs flex items-center justify-between cursor-pointer ${
+                            key={stay.title}
+                            onClick={() => toggleStay(stay.title)}
+                            className={`p-3.5 rounded-xl border text-xs flex items-center justify-between cursor-pointer transition-all ${
                               isChecked
-                                ? 'bg-[#0E283E] border-[#E5A83B] text-white'
+                                ? 'bg-[#0E283E] border-[#E5A83B] text-white shadow-sm'
                                 : 'bg-[#0A1A2A] border-slate-800 text-slate-300 hover:border-slate-700'
                             }`}
                           >
-                            <span>{stay}</span>
-                            <div className={`w-4 h-4 rounded flex items-center justify-center border ${isChecked ? 'bg-[#E5A83B] border-[#E5A83B] text-slate-950' : 'border-slate-700'}`}>
-                              {isChecked && <Check className="w-3 h-3" />}
+                            <div>
+                              <div className="font-medium text-white font-serif-luxury text-sm">{stay.title}</div>
+                              <div className="text-[11px] text-slate-400 font-light mt-0.5">{stay.desc}</div>
+                            </div>
+                            <div className={`w-5 h-5 rounded-full flex items-center justify-center border flex-shrink-0 ml-3 ${isChecked ? 'bg-[#E5A83B] border-[#E5A83B] text-slate-950 font-bold' : 'border-slate-700'}`}>
+                              {isChecked && <Check className="w-3.5 h-3.5" />}
                             </div>
                           </div>
                         );
