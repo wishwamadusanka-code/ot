@@ -8,7 +8,6 @@ import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { DestinationsSection } from './components/DestinationsSection';
 import { CuratedToursSection } from './components/CuratedToursSection';
-import { TourAlbumSection } from './components/TourAlbumSection';
 import { WhyTravelSection } from './components/WhyTravelSection';
 import { TestimonialsSection } from './components/TestimonialsSection';
 import { CtaBanner } from './components/CtaBanner';
@@ -16,7 +15,6 @@ import { Footer } from './components/Footer';
 
 import { DestinationModal } from './components/DestinationModal';
 import { CuratedToursModal } from './components/CuratedToursModal';
-import { TourAlbumModal } from './components/TourAlbumModal';
 import { ExperiencesModal } from './components/ExperiencesModal';
 import { HeritageModal } from './components/HeritageModal';
 import { GuestStoriesModal } from './components/GuestStoriesModal';
@@ -27,7 +25,6 @@ import { WhatsAppPopup } from './components/WhatsAppPopup';
 
 import { Destination } from './types';
 import { DESTINATIONS } from './data/travelData';
-import { ORIGINAL_TOUR_PHOTOS } from './data/tourPhotosData';
 
 export default function App() {
   // Modal states
@@ -40,10 +37,6 @@ export default function App() {
   const [isConciergeOpen, setIsConciergeOpen] = useState(false);
   const [isTripPlannerOpen, setIsTripPlannerOpen] = useState(false);
   const [legalModalType, setLegalModalType] = useState<'privacy' | 'terms' | 'pledge' | null>(null);
-
-  // Original Tour Photos Album states
-  const [isPhotoModalOpen, setIsPhotoModalOpen] = useState(false);
-  const [selectedPhotoIndex, setSelectedPhotoIndex] = useState(0);
 
   // Pre-fill parameters for trip planner
   const [plannerDestination, setPlannerDestination] = useState<string | undefined>(undefined);
@@ -116,24 +109,15 @@ export default function App() {
           onPlanTripWithTour={(tourTitle) => handleOpenTripPlanner(undefined, tourTitle)}
         />
 
-        {/* Section 4: Authentic Original Tour Photos Album */}
-        <TourAlbumSection
-          photos={ORIGINAL_TOUR_PHOTOS}
-          onOpenPhotoModal={(idx) => {
-            setSelectedPhotoIndex(idx);
-            setIsPhotoModalOpen(true);
-          }}
-        />
-
-        {/* Section 5: Why Travel With Us */}
+        {/* Section 4: Why Travel With Us */}
         <WhyTravelSection />
 
-        {/* Section 6: Guest Stories */}
+        {/* Section 5: Guest Stories */}
         <TestimonialsSection
           onOpenAllReviews={() => setIsStoriesOpen(true)}
         />
 
-        {/* Section 7: Call to Action Banner */}
+        {/* Section 6: Call to Action Banner */}
         <CtaBanner
           onPlanTrip={() => handleOpenTripPlanner()}
         />
@@ -160,16 +144,6 @@ export default function App() {
         onClose={() => setIsCuratedToursOpen(false)}
         selectedTourId={selectedTourId}
         onBookTour={(tourTitle) => handleOpenTripPlanner(undefined, tourTitle)}
-      />
-
-      {/* Tour Photos Album Modal */}
-      <TourAlbumModal
-        isOpen={isPhotoModalOpen}
-        onClose={() => setIsPhotoModalOpen(false)}
-        photos={ORIGINAL_TOUR_PHOTOS}
-        currentPhotoIndex={selectedPhotoIndex}
-        onSelectIndex={(idx) => setSelectedPhotoIndex(idx)}
-        onPlanTrip={(tourTitle) => handleOpenTripPlanner(undefined, tourTitle)}
       />
 
       <ExperiencesModal

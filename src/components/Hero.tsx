@@ -89,10 +89,6 @@ export const Hero: React.FC<HeroProps> = ({ onExploreTours, onSelectCategory }) 
           />
           {/* Subtle natural vignette */}
           <div className="absolute inset-0 bg-gradient-to-t from-[#FAF7F2] via-transparent to-black/25 pointer-events-none" />
-          <div className="absolute top-3 right-3 bg-[#0C2340]/85 backdrop-blur-xs text-[#38BDF8] text-[10px] tracking-widest uppercase px-3 py-1 rounded-full border border-white/20 shadow-xs flex items-center gap-1.5 font-medium">
-            <Waves className="w-3 h-3 text-[#38BDF8]" />
-            <span>Sapphire Ocean Waters</span>
-          </div>
         </div>
 
         {/* Content & "Explore Our Tours" Tab Rearranged Cleanly Below the Photo */}
@@ -150,12 +146,6 @@ export const Hero: React.FC<HeroProps> = ({ onExploreTours, onSelectCategory }) 
           />
           {/* Desktop directional scrim: text on the left stays clear while sapphire ocean waters shine */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#FAF7F2]/95 via-[#FAF7F2]/70 to-transparent sm:w-7/12 lg:w-1/2" />
-        </div>
-
-        {/* Ocean Badge Top Right */}
-        <div className="absolute top-6 right-8 z-10 hidden lg:flex items-center gap-2 bg-[#0C2340]/85 backdrop-blur-md text-[#38BDF8] text-[11px] tracking-widest uppercase px-4 py-1.5 rounded-full border border-[#38BDF8]/30 shadow-lg">
-          <Waves className="w-3.5 h-3.5 text-[#38BDF8]" />
-          <span>Sapphire Shores & Coastal Ceylon</span>
         </div>
 
         {/* Hero Content Left Lockup */}

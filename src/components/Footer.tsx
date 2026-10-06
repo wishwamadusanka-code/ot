@@ -95,17 +95,6 @@ export const Footer: React.FC<FooterProps> = ({
                   Ayurvedic Wellness Retreats
                 </button>
               </li>
-              <li>
-                <button
-                  onClick={() => {
-                    const el = document.getElementById('album');
-                    if (el) el.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                  className="hover:text-[#E5A83B] text-[#E5A83B] transition-colors text-left font-semibold flex items-center gap-1.5"
-                >
-                  <span>Tour Photos Album (11)</span>
-                </button>
-              </li>
             </ul>
           </div>
 

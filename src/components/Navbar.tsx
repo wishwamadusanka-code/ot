@@ -93,20 +93,6 @@ export const Navbar: React.FC<NavbarProps> = ({
             Destinations
           </button>
           <button
-            onClick={() => {
-              const el = document.getElementById('album');
-              if (el) {
-                el.scrollIntoView({ behavior: 'smooth' });
-              }
-            }}
-            className="hover:text-[#B8863D] text-[#2C4058] transition-colors py-1 cursor-pointer flex items-center gap-1.5"
-          >
-            <span>Photo Album</span>
-            <span className="bg-[#E5A83B]/20 text-[#B8863D] text-[9px] px-1.5 py-0.2 rounded-full font-semibold">
-              11
-            </span>
-          </button>
-          <button
             onClick={onOpenHeritage}
             className="hover:text-[#B8863D] text-[#2C4058] transition-colors py-1 cursor-pointer"
           >
@@ -195,20 +181,6 @@ export const Navbar: React.FC<NavbarProps> = ({
               className="text-left py-2 hover:text-[#B8863D]"
             >
               Destinations
-            </button>
-            <button
-              onClick={() => handleNavClick(() => {
-                const el = document.getElementById('album');
-                if (el) {
-                  el.scrollIntoView({ behavior: 'smooth' });
-                }
-              })}
-              className="text-left py-2 hover:text-[#B8863D] flex items-center justify-between"
-            >
-              <span>Photo Album</span>
-              <span className="bg-[#E5A83B]/20 text-[#B8863D] text-[10px] px-2 py-0.5 rounded-full font-semibold">
-                11 Moments
-              </span>
             </button>
             <button
               onClick={() => handleNavClick(onOpenHeritage)}

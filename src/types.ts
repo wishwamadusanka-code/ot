@@ -58,17 +58,3 @@ export interface TripInquiry {
   phone: string;
   notes: string;
 }
-
-export interface TourPhoto {
-  id: string;
-  originalFileName: string;
-  title: string;
-  category: 'Water & Safaris' | 'Highlands & Rail' | 'Cultural & Village' | 'VIP Arrivals';
-  location: string;
-  guests: string;
-  description: string;
-  highlights: string[];
-  date: string;
-  badge: string;
-  image: string;
-}
