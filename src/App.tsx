@@ -23,11 +23,11 @@ import { GuestStoriesModal } from './components/GuestStoriesModal';
 import { ConciergeModal } from './components/ConciergeModal';
 import { TripPlannerModal } from './components/TripPlannerModal';
 import { LegalModal } from './components/LegalModal';
+import { WhatsAppPopup } from './components/WhatsAppPopup';
 
 import { Destination } from './types';
 import { DESTINATIONS } from './data/travelData';
 import { ORIGINAL_TOUR_PHOTOS } from './data/tourPhotosData';
-import { getStoredPhotos, savePhoto, saveMultiplePhotos } from './utils/photoStorage';
 
 export default function App() {
   // Modal states
@@ -42,22 +42,12 @@ export default function App() {
   const [legalModalType, setLegalModalType] = useState<'privacy' | 'terms' | 'pledge' | null>(null);
 
   // Original Tour Photos Album states
-  const [photoImages, setPhotoImages] = useState<Record<string, string>>({});
   const [isPhotoModalOpen, setIsPhotoModalOpen] = useState(false);
   const [selectedPhotoIndex, setSelectedPhotoIndex] = useState(0);
 
   // Pre-fill parameters for trip planner
   const [plannerDestination, setPlannerDestination] = useState<string | undefined>(undefined);
   const [plannerTour, setPlannerTour] = useState<string | undefined>(undefined);
-
-  // Load persistently stored tour photos on initial mount
-  useEffect(() => {
-    getStoredPhotos().then((stored) => {
-      if (stored && Object.keys(stored).length > 0) {
-        setPhotoImages(stored);
-      }
-    });
-  }, []);
 
   const handleOpenTripPlanner = (dest?: string, tour?: string) => {
     setPlannerDestination(dest);
@@ -75,21 +65,6 @@ export default function App() {
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
     }
-  };
-
-  const handleUploadMultiple = async (files: FileList) => {
-    const { matchedPhotos } = await saveMultiplePhotos(files);
-    setPhotoImages((prev) => ({ ...prev, ...matchedPhotos }));
-  };
-
-  const handleUploadSingle = async (photoId: string, file: File) => {
-    const reader = new FileReader();
-    reader.onload = async () => {
-      const dataUrl = reader.result as string;
-      await savePhoto(photoId, dataUrl);
-      setPhotoImages((prev) => ({ ...prev, [photoId]: dataUrl }));
-    };
-    reader.readAsDataURL(file);
   };
 
   return (
@@ -144,13 +119,10 @@ export default function App() {
         {/* Section 4: Authentic Original Tour Photos Album */}
         <TourAlbumSection
           photos={ORIGINAL_TOUR_PHOTOS}
-          photoImages={photoImages}
           onOpenPhotoModal={(idx) => {
             setSelectedPhotoIndex(idx);
             setIsPhotoModalOpen(true);
           }}
-          onUploadMultiple={handleUploadMultiple}
-          onUploadSingle={handleUploadSingle}
         />
 
         {/* Section 5: Why Travel With Us */}
@@ -197,8 +169,6 @@ export default function App() {
         photos={ORIGINAL_TOUR_PHOTOS}
         currentPhotoIndex={selectedPhotoIndex}
         onSelectIndex={(idx) => setSelectedPhotoIndex(idx)}
-        photoImages={photoImages}
-        onUploadSingle={handleUploadSingle}
         onPlanTrip={(tourTitle) => handleOpenTripPlanner(undefined, tourTitle)}
       />
 
@@ -242,6 +212,9 @@ export default function App() {
         type={legalModalType}
         onClose={() => setLegalModalType(null)}
       />
+
+      {/* Floating Interactive WhatsApp Pop-up */}
+      <WhatsAppPopup />
     </div>
   );
 }

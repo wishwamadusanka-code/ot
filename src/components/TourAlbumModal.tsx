@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, MapPin, Users, Calendar, ArrowLeft, ArrowRight, Compass, Sparkles, Upload } from 'lucide-react';
+import { X, MapPin, Users, Calendar, ArrowLeft, ArrowRight, Compass } from 'lucide-react';
 import { TourPhoto } from '../types';
 
 interface TourAlbumModalProps {
@@ -8,8 +8,6 @@ interface TourAlbumModalProps {
   photos: TourPhoto[];
   currentPhotoIndex: number;
   onSelectIndex: (index: number) => void;
-  photoImages: Record<string, string>;
-  onUploadSingle: (photoId: string, file: File) => void;
   onPlanTrip: (tourTitle: string) => void;
 }
 
@@ -19,14 +17,11 @@ export const TourAlbumModal: React.FC<TourAlbumModalProps> = ({
   photos,
   currentPhotoIndex,
   onSelectIndex,
-  photoImages,
-  onUploadSingle,
   onPlanTrip
 }) => {
   if (!isOpen || photos.length === 0) return null;
 
   const current = photos[currentPhotoIndex] || photos[0];
-  const currentImage = photoImages[current.id];
 
   const handlePrev = () => {
     onSelectIndex((currentPhotoIndex - 1 + photos.length) % photos.length);
@@ -34,12 +29,6 @@ export const TourAlbumModal: React.FC<TourAlbumModalProps> = ({
 
   const handleNext = () => {
     onSelectIndex((currentPhotoIndex + 1) % photos.length);
-  };
-
-  const handleFileInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      onUploadSingle(current.id, e.target.files[0]);
-    }
   };
 
   return (
@@ -57,17 +46,11 @@ export const TourAlbumModal: React.FC<TourAlbumModalProps> = ({
           <div className="flex items-center gap-2.5">
             <span className="w-2.5 h-2.5 rounded-full bg-[#E5A83B] animate-pulse" />
             <span className="text-xs font-semibold tracking-[0.2em] uppercase text-[#E5A83B]">
-              Original Tour Moment {currentPhotoIndex + 1} of {photos.length}
+              Ocean Pearl Travels · Moment {currentPhotoIndex + 1} of {photos.length}
             </span>
           </div>
 
           <div className="flex items-center gap-2">
-            <label className="cursor-pointer bg-[#0D263E] hover:bg-[#123659] text-slate-300 hover:text-white px-3 py-1.5 rounded-lg border border-slate-700 text-xs flex items-center gap-1.5 transition-colors">
-              <Upload className="w-3.5 h-3.5 text-[#E5A83B]" />
-              <span className="hidden sm:inline">Replace Photo</span>
-              <input type="file" accept="image/*" className="hidden" onChange={handleFileInput} />
-            </label>
-
             <button
               onClick={onClose}
               className="w-9 h-9 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center border border-slate-700 transition-colors"
@@ -83,42 +66,24 @@ export const TourAlbumModal: React.FC<TourAlbumModalProps> = ({
           
           {/* Main Photo Column */}
           <div className="lg:col-span-7 relative bg-black flex items-center justify-center min-h-[320px] sm:min-h-[420px] lg:min-h-[500px] overflow-hidden group">
-            {currentImage ? (
-              <img
-                src={currentImage}
-                alt={current.title}
-                className="w-full h-full object-contain max-h-[600px]"
-                referrerPolicy="no-referrer"
-              />
-            ) : (
-              <div className="p-8 text-center flex flex-col items-center justify-center max-w-sm">
-                <div className="w-16 h-16 rounded-full bg-[#0C2340] border border-[#E5A83B]/40 flex items-center justify-center mb-4 text-[#E5A83B]">
-                  <Sparkles className="w-8 h-8" />
-                </div>
-                <h4 className="text-white font-medium text-base mb-1">{current.title}</h4>
-                <p className="text-slate-400 text-xs mb-4">
-                  Original WhatsApp Photo: <br />
-                  <code className="text-[#E5A83B] text-[11px] break-all">{current.originalFileName}</code>
-                </p>
-                <label className="cursor-pointer bg-[#C08A3E] hover:bg-[#A8742A] text-white text-xs font-semibold px-4 py-2.5 rounded-lg flex items-center gap-2 transition-all shadow-md">
-                  <Upload className="w-4 h-4" />
-                  Select Original File
-                  <input type="file" accept="image/*" className="hidden" onChange={handleFileInput} />
-                </label>
-              </div>
-            )}
+            <img
+              src={current.image}
+              alt={current.title}
+              className="w-full h-full object-contain max-h-[620px]"
+              referrerPolicy="no-referrer"
+            />
 
             {/* Prev / Next Floating Arrows */}
             <button
               onClick={handlePrev}
-              className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 hover:bg-[#0C2340] text-white flex items-center justify-center border border-white/20 transition-all opacity-80 hover:opacity-100"
+              className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 hover:bg-[#0C2340] text-white flex items-center justify-center border border-white/20 transition-all opacity-80 hover:opacity-100 cursor-pointer"
               aria-label="Previous photo"
             >
               <ArrowLeft className="w-5 h-5" />
             </button>
             <button
               onClick={handleNext}
-              className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 hover:bg-[#0C2340] text-white flex items-center justify-center border border-white/20 transition-all opacity-80 hover:opacity-100"
+              className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 hover:bg-[#0C2340] text-white flex items-center justify-center border border-white/20 transition-all opacity-80 hover:opacity-100 cursor-pointer"
               aria-label="Next photo"
             >
               <ArrowRight className="w-5 h-5" />
@@ -194,7 +159,7 @@ export const TourAlbumModal: React.FC<TourAlbumModalProps> = ({
                   onClose();
                   onPlanTrip(current.title);
                 }}
-                className="flex-1 bg-[#C08A3E] hover:bg-[#A8742A] text-white text-xs font-semibold tracking-wider uppercase py-3 px-4 rounded-xl transition-all shadow-md flex items-center justify-center gap-2"
+                className="flex-1 bg-[#C08A3E] hover:bg-[#A8742A] text-white text-xs font-semibold tracking-wider uppercase py-3 px-4 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer"
               >
                 <Compass className="w-4 h-4" />
                 <span>Experience This Journey</span>
@@ -209,7 +174,6 @@ export const TourAlbumModal: React.FC<TourAlbumModalProps> = ({
         <div className="p-3 bg-[#050D15] border-t border-slate-800 overflow-x-auto flex items-center gap-2.5 scrollbar-thin">
           {photos.map((item, idx) => {
             const isSelected = idx === currentPhotoIndex;
-            const thumbImg = photoImages[item.id];
             return (
               <button
                 key={item.id}
@@ -219,13 +183,7 @@ export const TourAlbumModal: React.FC<TourAlbumModalProps> = ({
                 }`}
                 title={item.title}
               >
-                {thumbImg ? (
-                  <img src={thumbImg} alt={item.title} className="w-full h-full object-cover" />
-                ) : (
-                  <div className="w-full h-full bg-slate-800 flex items-center justify-center text-[10px] text-slate-400 font-mono">
-                    #{idx + 1}
-                  </div>
-                )}
+                <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
               </button>
             );
           })}

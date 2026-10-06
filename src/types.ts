@@ -70,5 +70,5 @@ export interface TourPhoto {
   highlights: string[];
   date: string;
   badge: string;
-  defaultDataUrl?: string;
+  image: string;
 }

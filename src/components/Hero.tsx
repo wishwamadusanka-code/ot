@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowRight, Waves } from 'lucide-react';
 import {
-  sigiriyaHeroImg,
+  homeOceanBackground,
   culturalTriangleImg,
   wildlifeSafariImg,
   southernBeachesImg
@@ -78,25 +78,32 @@ export const Hero: React.FC<HeroProps> = ({ onExploreTours, onSelectCategory }) 
       {/* ========================================================================= */}
       <section className="sm:hidden flex flex-col bg-[#FAF7F2]">
         
-        {/* Unobstructed Panoramic Scenery Banner */}
+        {/* Unobstructed Panoramic Ocean Scenery Banner */}
         <div className="relative w-full h-[280px] overflow-hidden bg-[#0C2340]">
           <img
-            src={sigiriyaHeroImg}
-            alt="Sigiriya Lion Rock Panoramic View with Explorer"
-            className="w-full h-full object-cover object-[center_35%]"
+            src={homeOceanBackground}
+            alt="Tropical Ocean Waters of Sri Lanka - Ocean Pearl Travels"
+            className="w-full h-full object-cover object-[center_45%]"
             referrerPolicy="no-referrer"
             decoding="async"
           />
           {/* Subtle natural vignette */}
           <div className="absolute inset-0 bg-gradient-to-t from-[#FAF7F2] via-transparent to-black/25 pointer-events-none" />
-          <div className="absolute top-3 right-3 bg-[#0C2340]/80 backdrop-blur-xs text-[#E5A83B] text-[10px] tracking-widest uppercase px-3 py-1 rounded-full border border-white/20 shadow-xs">
-            Sigiriya Lion Rock
+          <div className="absolute top-3 right-3 bg-[#0C2340]/85 backdrop-blur-xs text-[#38BDF8] text-[10px] tracking-widest uppercase px-3 py-1 rounded-full border border-white/20 shadow-xs flex items-center gap-1.5 font-medium">
+            <Waves className="w-3 h-3 text-[#38BDF8]" />
+            <span>Sapphire Ocean Waters</span>
           </div>
         </div>
 
         {/* Content & "Explore Our Tours" Tab Rearranged Cleanly Below the Photo */}
-        <div className="px-5 pt-2 pb-8 text-center bg-[#FAF7F2]">
+        <div className="px-5 pt-3 pb-8 text-center bg-[#FAF7F2]">
           
+          {/* Ocean Pearl Travels Theme Badge */}
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0C2D48]/10 border border-[#0284C7]/30 text-[#0369A1] text-[10px] tracking-[0.2em] uppercase font-semibold mb-2.5">
+            <Waves className="w-3.5 h-3.5 text-[#0284C7]" />
+            <span>Ocean Pearl Travels · Ceylon Expeditions</span>
+          </div>
+
           {/* Pearl Pin Accent */}
           <div className="flex items-center justify-center gap-2 mb-3">
             <span className="h-[1.5px] w-8 bg-[#C08A3E]" />
@@ -128,27 +135,45 @@ export const Hero: React.FC<HeroProps> = ({ onExploreTours, onSelectCategory }) 
       </section>
 
       {/* ========================================================================= */}
-      {/* 2. DESKTOP HERO: SIDE-BY-SIDE PANORAMIC EXPEDITION SCENERY               */}
+      {/* 2. DESKTOP HERO: SIDE-BY-SIDE PANORAMIC OCEAN SCENERY                     */}
       {/* ========================================================================= */}
       <section className="hidden sm:flex relative min-h-[620px] lg:min-h-[700px] w-full items-center overflow-hidden bg-[#0C2340]">
         
-        {/* Full-width Panoramic Background Scenery */}
+        {/* Full-width Panoramic Ocean Background Scenery */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <img
-            src={sigiriyaHeroImg}
-            alt="Sigiriya Lion Rock Lake Panoramic View with Explorer"
-            className="w-full h-full object-cover object-[center_30%]"
+            src={homeOceanBackground}
+            alt="Tropical Ocean Waters of Sri Lanka - Ocean Pearl Travels"
+            className="w-full h-full object-cover object-[center_35%]"
             referrerPolicy="no-referrer"
             decoding="async"
           />
-          {/* Desktop directional scrim: text on the left stays clear while Sigiriya and explorer shine */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#FAF7F2]/95 via-[#FAF7F2]/65 to-transparent sm:w-7/12 lg:w-1/2" />
+          {/* Desktop directional scrim: text on the left stays clear while sapphire ocean waters shine */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#FAF7F2]/95 via-[#FAF7F2]/70 to-transparent sm:w-7/12 lg:w-1/2" />
+        </div>
+
+        {/* Ocean Badge Top Right */}
+        <div className="absolute top-6 right-8 z-10 hidden lg:flex items-center gap-2 bg-[#0C2340]/85 backdrop-blur-md text-[#38BDF8] text-[11px] tracking-widest uppercase px-4 py-1.5 rounded-full border border-[#38BDF8]/30 shadow-lg">
+          <Waves className="w-3.5 h-3.5 text-[#38BDF8]" />
+          <span>Sapphire Shores & Coastal Ceylon</span>
         </div>
 
         {/* Hero Content Left Lockup */}
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full py-24 lg:py-32">
           <div className="max-w-xl text-left">
             
+            {/* Ocean Pearl Travels Oceanic Badge */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#03203C]/90 backdrop-blur-md border border-[#38BDF8]/40 text-white mb-4 shadow-md">
+              <Waves className="w-4 h-4 text-[#38BDF8]" />
+              <span className="text-[11px] font-semibold tracking-[0.22em] uppercase text-[#38BDF8]">
+                Ocean Pearl Travels
+              </span>
+              <span className="text-slate-400 text-xs">·</span>
+              <span className="text-[11px] font-medium tracking-[0.14em] uppercase text-[#F3BA4F]">
+                Pearl of the Indian Ocean
+              </span>
+            </div>
+
             {/* Elegant Pearl Pin Accent Bar */}
             <div className="flex items-center gap-2 mb-4">
               <span className="h-[1.5px] w-8 bg-[#C08A3E]" />

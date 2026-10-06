@@ -234,7 +234,7 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     id: '1',
     quote:
-      'We couldn’t have wished for a better chauffeur and guide for our two-week circuit. Ocean Pearl Travel handled every luxury hotel check-in and private permit flawlessly.',
+      'We couldn’t have wished for a better chauffeur and guide for our two-week circuit. Ocean Pearl Travels handled every luxury hotel check-in and private permit flawlessly.',
     author: 'ILARIA & MARCO',
     location: 'ITALY',
     rating: 5,

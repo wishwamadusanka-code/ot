@@ -1,5 +1,17 @@
 import { TourPhoto } from '../types';
 
+import photoNegomboLagoon from '../assets/images/album_negombo_lagoon_1791248073730.jpg';
+import photoNaanuOya from '../assets/images/album_naanu_oya_1791248112275.jpg';
+import photoAirportWelcome from '../assets/images/album_airport_welcome_1791248140432.jpg';
+import photoSigiriyaSafari from '../assets/images/album_sigiriya_safari_1791248157898.jpg';
+import photoSigiriyaBoat from '../assets/images/album_sigiriya_boat_1791248173750.jpg';
+import photoLabuKalleTea from '../assets/images/album_labukalle_tea_1791248187401.jpg';
+import photoRedTukTuk from '../assets/images/album_red_tuktuk_1791248203313.jpg';
+import photoAirportChauffeur from '../assets/images/album_chauffeur_kaiser_1791274652034.jpg';
+import photoMaduMangrove from '../assets/images/album_madu_mangrove_1791274671442.jpg';
+import photoRoadsideFruit from '../assets/images/album_roadside_fruit_1791274690374.jpg';
+import photoLuxuryVilla from '../assets/images/album_luxury_villa_1791274724668.jpg';
+
 export const ORIGINAL_TOUR_PHOTOS: TourPhoto[] = [
   {
     id: 'negombo-lagoon-tour',
@@ -17,7 +29,8 @@ export const ORIGINAL_TOUR_PHOTOS: TourPhoto[] = [
       'Bespoke water picnic experience'
     ],
     date: 'February 2025',
-    badge: 'Lagoon Boat Tour'
+    badge: 'Lagoon Boat Tour',
+    image: photoNegomboLagoon
   },
   {
     id: 'nanu-oya-railway-station',
@@ -35,7 +48,8 @@ export const ORIGINAL_TOUR_PHOTOS: TourPhoto[] = [
       'Chauffeur greeting and luggage assistance'
     ],
     date: 'February 2025',
-    badge: 'Highland Rail Journey'
+    badge: 'Highland Rail Journey',
+    image: photoNaanuOya
   },
   {
     id: 'bandaranaike-airport-welcome',
@@ -53,7 +67,8 @@ export const ORIGINAL_TOUR_PHOTOS: TourPhoto[] = [
       'Personalized travel orientation and warm welcome'
     ],
     date: 'January 2025',
-    badge: 'VIP Airport Welcome'
+    badge: 'VIP Airport Welcome',
+    image: photoAirportWelcome
   },
   {
     id: 'sigiriya-village-safari',
@@ -71,7 +86,8 @@ export const ORIGINAL_TOUR_PHOTOS: TourPhoto[] = [
       'Local lotus flower welcome'
     ],
     date: 'January 2025',
-    badge: 'Village Buggy Safari'
+    badge: 'Village Buggy Safari',
+    image: photoSigiriyaSafari
   },
   {
     id: 'sigiriya-village-boat-safari',
@@ -89,7 +105,8 @@ export const ORIGINAL_TOUR_PHOTOS: TourPhoto[] = [
       'Private boat reserved exclusively for our guests'
     ],
     date: 'January 2025',
-    badge: 'Lake Boat Safari'
+    badge: 'Lake Boat Safari',
+    image: photoSigiriyaBoat
   },
   {
     id: 'labu-kalle-tea-factory',
@@ -102,12 +119,13 @@ export const ORIGINAL_TOUR_PHOTOS: TourPhoto[] = [
       'Exploring the legendary Labu Kalle tea factory and emerald hillside tea gardens in the cool Nuwara Eliya highlands, experiencing Ceylon tea plucking and factory production.',
     highlights: [
       'Guided walk through historic hillside tea terraces',
-      'Vishwa in official Ocean Pearl Travel expedition attire',
+      'Vishwa in official Ocean Pearl Travels expedition attire',
       'Factory tour covering traditional withering, rolling, and grading',
       'Fresh hot Ceylon tea tasting on the scenic veranda'
     ],
     date: 'February 2025',
-    badge: 'Historic Tea Factory'
+    badge: 'Historic Tea Factory',
+    image: photoLabuKalleTea
   },
   {
     id: 'tuk-tuk-island-explorer',
@@ -125,7 +143,8 @@ export const ORIGINAL_TOUR_PHOTOS: TourPhoto[] = [
       'Chauffeur-guided safety and local knowledge throughout'
     ],
     date: 'February 2025',
-    badge: 'Classic Ceylon Style'
+    badge: 'Classic Ceylon Style',
+    image: photoRedTukTuk
   },
   {
     id: 'airport-chauffeur-welcome',
@@ -143,7 +162,8 @@ export const ORIGINAL_TOUR_PHOTOS: TourPhoto[] = [
       'Bespoke itinerary orientation and chilled refreshments'
     ],
     date: 'March 2025',
-    badge: 'Bespoke Chauffeur Welcome'
+    badge: 'Bespoke Chauffeur Welcome',
+    image: photoAirportChauffeur
   },
   {
     id: 'madu-ganga-mangrove-boat',
@@ -161,7 +181,8 @@ export const ORIGINAL_TOUR_PHOTOS: TourPhoto[] = [
       'Shared camaraderie and scenic photography'
     ],
     date: 'February 2025',
-    badge: 'Group River Safari'
+    badge: 'Group River Safari',
+    image: photoMaduMangrove
   },
   {
     id: 'roadside-banana-market',
@@ -179,7 +200,8 @@ export const ORIGINAL_TOUR_PHOTOS: TourPhoto[] = [
       'Lively interaction and memories with local stallholders'
     ],
     date: 'February 2025',
-    badge: 'Local Flavors'
+    badge: 'Local Flavors',
+    image: photoRoadsideFruit
   },
   {
     id: 'villa-hospitality-checkin',
@@ -197,6 +219,7 @@ export const ORIGINAL_TOUR_PHOTOS: TourPhoto[] = [
       'Personal attention to guest comfort and itinerary requests'
     ],
     date: 'March 2025',
-    badge: 'Luxury Hospitality'
+    badge: 'Luxury Hospitality',
+    image: photoLuxuryVilla
   }
 ];

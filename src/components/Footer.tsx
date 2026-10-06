@@ -37,7 +37,7 @@ export const Footer: React.FC<FooterProps> = ({
               </div>
               <div>
                 <div className="font-serif-luxury text-base tracking-[0.18em] font-semibold text-white uppercase">
-                  Ocean Pearl Travel
+                  Ocean Pearl Travels
                 </div>
                 <div className="text-[9px] tracking-[0.22em] text-[#D8A344] font-medium uppercase">
                   Boutique Sri Lanka Expeditions
@@ -143,6 +143,35 @@ export const Footer: React.FC<FooterProps> = ({
                   Message On WhatsApp (Instant Reply)
                 </button>
               </div>
+
+              {/* Verified Profiles & Socials */}
+              <div className="pt-3 flex items-center gap-2.5">
+                <a
+                  href="https://www.tripadvisor.com/Attraction_Review-g1500185-d34253512-Reviews-Ocean_pearl_travel-Katunayake_Negombo_Western_Province.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#00AA6C]/20 hover:bg-[#00AA6C]/30 text-[#00AA6C] border border-[#00AA6C]/40 px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-colors cursor-pointer"
+                  title="Ocean Pearl Travels on TripAdvisor"
+                >
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3 0 .42-.09.81-.25 1.17 1.42.47 2.44 1.8 2.44 3.39 0 1.93-1.57 3.5-3.5 3.5-.95 0-1.81-.38-2.44-1-.18.06-.37.1-.56.1s-.38-.04-.56-.1c-.63.62-1.49 1-2.44 1-1.93 0-3.5-1.57-3.5-3.5 0-1.59 1.02-2.92 2.44-3.39C6.09 8.81 6 8.42 6 8c0-1.66 1.34-3 3-3 .7 0 1.35.24 1.87.64.35-.09.73-.14 1.13-.14zm-4.5 7c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zm9 0c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z" />
+                  </svg>
+                  <span>TripAdvisor</span>
+                </a>
+
+                <a
+                  href="https://www.facebook.com/profile.php?id=61586828377320&mibextid=wwXIfr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#1877F2]/20 hover:bg-[#1877F2]/30 text-[#4294FF] border border-[#1877F2]/40 px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-colors cursor-pointer"
+                  title="Ocean Pearl Travels on Facebook"
+                >
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  </svg>
+                  <span>Facebook</span>
+                </a>
+              </div>
             </div>
           </div>
 
@@ -151,7 +180,7 @@ export const Footer: React.FC<FooterProps> = ({
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-400">
           <div>
-            © 2026 Ocean Pearl Travel (Pvt) Ltd. All rights reserved.
+            © 2026 Ocean Pearl Travels (Pvt) Ltd. All rights reserved.
           </div>
           <div className="flex items-center gap-6">
             <button

@@ -39,7 +39,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
           {type === 'privacy' && (
             <>
               <p>
-                At Ocean Pearl Travel (Pvt) Ltd, we maintain the highest standards of confidentiality for our international clientele. We collect only the information necessary to fulfill custom travel itineraries, secure national park wildlife permits, and book private luxury boutique villas.
+                At Ocean Pearl Travels (Pvt) Ltd, we maintain the highest standards of confidentiality for our international clientele. We collect only the information necessary to fulfill custom travel itineraries, secure national park wildlife permits, and book private luxury boutique villas.
               </p>
               <h4 className="text-white font-semibold text-xs uppercase tracking-wider pt-2">
                 1. Information Collection & Usage
@@ -59,7 +59,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
           {type === 'terms' && (
             <>
               <p>
-                Ocean Pearl Travel operates as an SLTDA-licensed boutique tour operator under registration in Negombo, Sri Lanka.
+                Ocean Pearl Travels operates as an SLTDA-licensed boutique tour operator under registration in Negombo, Sri Lanka.
               </p>
               <h4 className="text-white font-semibold text-xs uppercase tracking-wider pt-2">
                 1. Bespoke Itinerary Customization
@@ -71,7 +71,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
                 2. Flexible Rescheduling
               </h4>
               <p>
-                We understand international flight schedules can shift. Ocean Pearl allows flexible date transfers up to 21 days prior to arrival without penalty, subject to boutique lodge availability.
+                We understand international flight schedules can shift. Ocean Pearl Travels allows flexible date transfers up to 21 days prior to arrival without penalty, subject to boutique lodge availability.
               </p>
             </>
           )}
@@ -79,7 +79,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
           {type === 'pledge' && (
             <>
               <p>
-                Sri Lanka’s delicate ecosystems, wild elephant corridors, and pristine coral reefs are national treasures. Ocean Pearl Travel enforces a strict Code of Ethical Travel:
+                Sri Lanka’s delicate ecosystems, wild elephant corridors, and pristine coral reefs are national treasures. Ocean Pearl Travels enforces a strict Code of Ethical Travel:
               </p>
               <ul className="list-disc pl-5 space-y-2 pt-2">
                 <li>

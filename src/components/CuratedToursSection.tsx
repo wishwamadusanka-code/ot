@@ -28,9 +28,9 @@ export const CuratedToursSection: React.FC<CuratedToursSectionProps> = ({
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <span className="text-[11px] font-semibold tracking-[0.28em] uppercase text-[#E5A83B] block mb-2">
-            Tailor-Made Expeditions
-          </span>
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#38BDF8]/10 border border-[#38BDF8]/25 text-[#38BDF8] text-[10px] sm:text-[11px] font-semibold tracking-[0.25em] uppercase mb-3">
+            <span>Ocean Pearl Travels Signature Circuits</span>
+          </div>
           <h2 className="font-serif-luxury text-3xl sm:text-5xl text-white font-medium tracking-tight mb-4">
             Curated Private Tours
           </h2>

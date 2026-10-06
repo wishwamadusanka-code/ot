@@ -53,6 +53,38 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ onOpen
           ))}
         </div>
 
+        {/* TripAdvisor Official Rating & Link */}
+        <div className="mt-12 max-w-xl mx-auto bg-gradient-to-r from-[#00AA6C]/15 via-[#0A1A2A] to-[#00AA6C]/15 border border-[#00AA6C]/35 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left shadow-xl">
+          <div className="flex items-center gap-3.5">
+            <div className="w-12 h-12 rounded-full bg-[#00AA6C]/20 border border-[#00AA6C]/50 flex items-center justify-center flex-shrink-0 text-[#00AA6C]">
+              {/* TripAdvisor Owl Icon */}
+              <svg className="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3 0 .42-.09.81-.25 1.17 1.42.47 2.44 1.8 2.44 3.39 0 1.93-1.57 3.5-3.5 3.5-.95 0-1.81-.38-2.44-1-.18.06-.37.1-.56.1s-.38-.04-.56-.1c-.63.62-1.49 1-2.44 1-1.93 0-3.5-1.57-3.5-3.5 0-1.59 1.02-2.92 2.44-3.39C6.09 8.81 6 8.42 6 8c0-1.66 1.34-3 3-3 .7 0 1.35.24 1.87.64.35-.09.73-.14 1.13-.14zm-4.5 7c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zm9 0c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z" />
+              </svg>
+            </div>
+            <div>
+              <div className="flex items-center gap-2 justify-center sm:justify-start">
+                <span className="text-white font-medium text-sm">Reviewed on TripAdvisor</span>
+                <span className="text-[#00AA6C] text-xs font-bold bg-[#00AA6C]/20 px-2 py-0.5 rounded-full border border-[#00AA6C]/30">
+                  5.0 ★★★★★
+                </span>
+              </div>
+              <p className="text-slate-300 text-xs mt-0.5">
+                Official Ocean Pearl Travels traveler feedback & ratings
+              </p>
+            </div>
+          </div>
+          <a
+            href="https://www.tripadvisor.com/Attraction_Review-g1500185-d34253512-Reviews-Ocean_pearl_travel-Katunayake_Negombo_Western_Province.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-[#00AA6C] hover:bg-[#008f5a] text-white text-xs font-semibold px-4 py-2.5 rounded-xl transition-all shadow-md inline-flex items-center gap-1.5 flex-shrink-0 cursor-pointer active:scale-95"
+          >
+            <span>Read TripAdvisor Reviews</span>
+            <span className="text-xs">↗</span>
+          </a>
+        </div>
+
         {/* Optional View All Reviews Action */}
         {onOpenAllReviews && (
           <div className="text-center mt-12">

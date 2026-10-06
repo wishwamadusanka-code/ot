@@ -90,7 +90,7 @@ export const DestinationModal: React.FC<DestinationModalProps> = ({
               The Experience
             </h4>
             <p className="text-slate-300 text-sm leading-relaxed font-light">
-              {destination.description} Ocean Pearl Travel arranges bespoke private permits, expert naturalist trackers, and VIP chauffeured transfers directly to secluded boutique sanctuaries away from mainstream tourist circuits.
+              {destination.description} Ocean Pearl Travels arranges bespoke private permits, expert naturalist trackers, and VIP chauffeured transfers directly to secluded boutique sanctuaries away from mainstream tourist circuits.
             </p>
           </div>
 

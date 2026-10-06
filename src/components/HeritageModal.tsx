@@ -26,7 +26,7 @@ export const HeritageModal: React.FC<HeritageModalProps> = ({
         <div className="px-6 py-5 border-b border-slate-800 flex items-center justify-between bg-[#06121E]">
           <div>
             <span className="text-[10px] font-semibold tracking-[0.25em] uppercase text-[#E5A83B] block">
-              About Ocean Pearl Travel
+              About Ocean Pearl Travels
             </span>
             <h2 className="font-serif-luxury text-2xl sm:text-3xl text-white font-medium">
               Our Heritage & Philosophy
@@ -49,7 +49,7 @@ export const HeritageModal: React.FC<HeritageModalProps> = ({
             <div className="w-20 h-20 rounded-full border-2 border-[#E5A83B] overflow-hidden flex-shrink-0 bg-slate-900 shadow-lg">
               <img
                 src={oceanPearlEmblem}
-                alt="Vishwa Madusanka - Ocean Pearl Travel"
+                alt="Vishwa Madusanka - Ocean Pearl Travels"
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
               />
@@ -62,7 +62,7 @@ export const HeritageModal: React.FC<HeritageModalProps> = ({
                 Vishwa Madusanka
               </h3>
               <p className="text-slate-300 text-xs font-light leading-relaxed mt-1">
-                “Sri Lanka is not merely an island to visit; it is an intimate world of rainforests, sapphire shores, ancient ruins, and legendary highland tea estates. Our mission with Ocean Pearl Travel is to craft journeys that balance uncompromised luxury with genuine Sri Lankan warmth.”
+                “Sri Lanka is not merely an island to visit; it is an intimate world of rainforests, sapphire shores, ancient ruins, and legendary highland tea estates. Our mission with Ocean Pearl Travels is to craft journeys that balance uncompromised luxury with genuine Sri Lankan warmth.”
               </p>
             </div>
           </div>
@@ -123,7 +123,7 @@ export const HeritageModal: React.FC<HeritageModalProps> = ({
             <div className="text-[#E5A83B] font-semibold uppercase tracking-wider text-[10px]">
               Headquarters & Concierge Office
             </div>
-            <p>Ocean Pearl Travel (Pvt) Ltd · 385/13 Kularathna Road, Negombo, Sri Lanka</p>
+            <p>Ocean Pearl Travels (Pvt) Ltd · 385/13 Kularathna Road, Negombo, Sri Lanka</p>
             <p>Direct Concierge Hotline: <strong className="text-white">+94 77 550 7506</strong></p>
             <p>Founder Direct Email: <strong className="text-white">info.oceanpearltravel@gmail.com</strong></p>
           </div>

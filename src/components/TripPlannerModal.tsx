@@ -133,7 +133,7 @@ export const TripPlannerModal: React.FC<TripPlannerModalProps> = ({
                   Itinerary Proposal Requested
                 </h3>
                 <p className="text-slate-300 text-sm font-light max-w-lg mx-auto mt-2 leading-relaxed">
-                  Thank you, <strong className="text-white">{contactInfo.name || 'Dear Guest'}</strong>. Founder Vishwa Madusanka and our senior concierge team will personally review your preferences and craft a custom day-by-day proposal within 24 hours.
+                  Thank you, <strong className="text-white">{contactInfo.name || 'Dear Guest'}</strong>. Founder Vishwa Madusanka and the Ocean Pearl Travels concierge team will personally review your preferences and craft a bespoke day-by-day proposal within 24 hours.
                 </p>
               </div>
 

@@ -16,8 +16,15 @@ export const WhyTravelSection: React.FC = () => {
   };
 
   return (
-    <section className="py-20 md:py-28 bg-[#07131F] border-t border-slate-900">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 md:py-28 bg-[#061424] border-t border-[#14B8A6]/20 relative overflow-hidden">
+      
+      {/* Oceanic ambient backdrop */}
+      <div 
+        aria-hidden="true" 
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[320px] bg-gradient-to-r from-[#0284C7]/10 via-[#14B8A6]/10 to-transparent rounded-full blur-3xl pointer-events-none" 
+      />
+
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Heading */}
         <div className="text-center mb-16 flex flex-col items-center">
